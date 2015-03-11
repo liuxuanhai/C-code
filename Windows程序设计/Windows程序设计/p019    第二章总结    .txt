@@ -1,0 +1,13 @@
+1. 使用Unicode或者是宽字符并不会改变c语言中的字符数据类型, char类型继续代表一个字节的存储空间(wchar_t才是俩个的), 而且sizeof(char)继续返回1, 理论上说, c语言一个字节可能长于8位, 但是对于大多数人来说, 一个字节(因而就是一个char)是8位宽;
+2. L"Hello!";  大写字母L(表示长整型)紧接左引号, 这向编译器表名这个字符串将用宽字符存储---也就是说, 每个字符占用两个字节, 所以这个字符串需要14个字节;  但是wchar_t c = L'A';中的L通常不是必须的, c编译器总是会在字符后边加0的;
+3. NPSTR LPSTR 前缀N和L代表着"近(near)"和"远(long)", 指的是16位windows系统中的两种大小不同的指针, 但是在win32中near和long指针没有区别(难道这就是把LPSTR改成PSTR的原因?);
+4. lstrlen();这个函数提供了C运行库中对应的函数功能, 当定义了UNICODE标识符时, 这些函数就接受宽字符串, 否则接受常规字符串, 宽字符串版的lstrlenW()在windows98上是可以运行的;
+5. int sprintf(char * szBuffer, const char * szFormat, ...); sprintf并不是将格式化加过写到标准输出, 而是将其存入szBuffer, 该函数返回字符串的长度;
+   _snprintf(); 此函数引进了另一个参数来指定字符缓冲区的大小;
+   vsprintf(); 他只有三个参数, 第三个参数用到了可变宏的内容;
+6. 可变宏: 
+   va_list pArgList;  // typedef char * va_list; 
+   va_start(pArgList, Arg(堆栈中的上一个参数)); // pArgList = (char *)&Arg + sizeof(szFormat); va_start宏将pArg设为指向一个在堆栈参数szFormat之上的堆栈变量 
+   va_arg(pArgList, int);  // 读取第一个参数变量int并将指针指向sizeof(int)之后的指针;
+   va_end(pArgList);
+7. GetSystemMetrics(SM_CXSCREEN);  获取系统度量函数, 这里获取了窗口的长和宽;

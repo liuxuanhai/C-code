@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "日常练习", "日常练习\日常练习.vcxproj", "{54AB69C7-2445-46D0-B31C-B24E72ABB442}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54AB69C7-2445-46D0-B31C-B24E72ABB442}.Debug|Win32.ActiveCfg = Debug|Win32
+		{54AB69C7-2445-46D0-B31C-B24E72ABB442}.Debug|Win32.Build.0 = Debug|Win32
+		{54AB69C7-2445-46D0-B31C-B24E72ABB442}.Release|Win32.ActiveCfg = Release|Win32
+		{54AB69C7-2445-46D0-B31C-B24E72ABB442}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
+EndGlobal

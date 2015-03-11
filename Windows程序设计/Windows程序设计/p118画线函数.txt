@@ -1,0 +1,31 @@
+. 十种画线函数:
+	1. LineTo() 画直线
+	2. PolyLine() 和 PolylineTo(), 画一条由多条首尾相连的直线构成的折线
+	3. PolyPolyline() 画多条折线
+	4. Arc() 画椭圆弧线
+	5. PolyBezier() 和 PolyBezierTo() 画贝塞尔样条曲线
+	. windows 98 不支持的三种:
+	6. ArcTo() 和 AngleArc() 画椭圆弧线
+	7. PolyDraw() 画多条贝塞尔样条曲线或一条由首尾相连的直线构成的折线
+
+. 既完成划线也会填充所画图形封闭区间的函数:
+	1. Rectangle() 画矩形
+	2. Ellipse() 画椭圆
+	3. RoundRect() 画圆角矩形
+	4. Pie() 画椭圆的一部分, 使其看起来像一个扇形
+	5. Chord() 画出由弦分割出的部分椭圆, 形状呈弓形
+
+. 影响以上函数绘制线条外观的5个属性:
+	1. 当前画笔位置(仅适用于LineTo(), PolylineTo(), PolyBezierTo() 和 ArcTo()).
+	2. 画笔.
+	3. 背景模式.
+	4. 背景颜色.
+	5. 绘制模式.
+
+. 为了画一条直线, 必须调用两个函数:
+	1. MoveToEx(hdc, xBeg, yBeg, NULL);  指定直线的起点  在默认的设备环境中, 点(0, 0)为最初设定的当前位置, 如果没有指定当前位置, 那么LineTo函数就会从客户区的左上角开始画线.
+		.. 第四个参数为指向POINT结构的指针, x 和 y字段表示运行该函数之前的当前位置, 如果不需要就设为NULL
+	2. LineTo(hdc, xEnd, yEnd);  指定直线的终点  从当前位置(不包括当前位置)指定位置(包括指定位置)
+
+. 获取当前位置的函数:
+	GetCurrentPositionEx(hdc, &pt);

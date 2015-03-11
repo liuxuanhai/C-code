@@ -1,0 +1,54 @@
+. 画笔和绘图模式决定了线条的外观.
+
+. windows提供三种库画笔(stock pen): WHITE_PEN, BLACK_PEN, NULL_PEN
+	1. BLACK_PEN: 默认的画笔, 该画笔绘制一条实心的宽度为一个像素的黑色线条.
+	2. WHITE_PEN
+	3. NULL_PEN: 不会只任何图形
+
+. 获取画笔句柄: hPen = GetStockObject(WHITE_PEN);
+
+. 把画笔选入设备环境: SelectObject(hdc, hPen); 同时, 此函数返回之前选入设备环境中的画笔的句柄, 在使用完某个画笔, 然后恢复之前画笔的程序中, 可以这样用: 
+		hPen = SelectObject(hdc, GetStockObject(WHITE_PEN));
+		...
+		SelectObject(hdc, hPen);
+
+. 自定义画笔(通过句柄实现对画笔的操作):
+	1. 创建"逻辑画笔":
+		. hPen = CreatePen(iPenStyle, iWidth, crColor)
+			1. iPenStyle 画笔样式: PS_SOLID 实线    PS_DASH - - - -破折号, 虚线    PS_DOT ........ 点线    PS_DASHDOT_._._    PS_NULL    PS_INSIDEFRAME 框架内画线    其他画刷在画轮廓的时候, 如果宽度大于一个像素, 那么画笔的中心会处于边界之上, 这样画出的轮廓线部分将会在边框之外, 但是对于PS_INSIDEFRAME笔画样式, 整个轮廓都会在边框内.
+			2. iWidth    画笔宽度: 当iWidth为0的时候, windows把画笔的宽度设定为1个像素.
+			3. crColor   画笔颜色: 一个COLORREF值
+		. hPen = CreatePenIndirect(&logpen)  // 这种方法适合创建很多画笔的情况
+			. 首先需要一个LOGPEN逻辑画笔结构;
+				LOGPEN.lopnStyle(UINT)     画笔样式
+				LOGPEN.lopnWidth(POINT)    画笔宽度 这里仅仅使用x字段设置画笔的宽度
+				LOGPEN.lopnColor(COLORREF) 画笔颜色
+	2. 选择:
+		SelectObject(hdc, hPen); 一次只能有一支画笔被选入设备环境.
+	3. 删除:
+		DeleteObject(hPen); 在释放设备环境句柄或者将其他画笔选入设备环境中以后, 需要删除自定义的逻辑画笔.
+	!. 创建WM_CREATE  选择WM_PAINT  删除WM_DESTROY  这是最直接的方法.
+
+. 逻辑画笔是一个"GDI对象", 一个程序可以创建6种GDI对象:
+	1. 画笔    2. 画刷    3. 位图    4. 区域    5. 字体    6. 调色板     
+	除了调色板, 这些对象都使用SelectObject()将其选入设备环境.
+
+. GDI对象使用规则:
+	1. 最终都要删除你所创建的所有GDI对象.
+	2. 在GDI被选入一个有效的设备环境时, 不要删除它.
+	3. 不要删除备用对象(库对象(stock object)).
+
+. 获取逻辑画笔中的LOGPEN中的各个字段:
+	GetObject(hPen, sizeof(LOGPEN), (LPVOID)&logpen);
+
+. 获取当前被选入的设备环境中的画笔句柄:
+	hPen = GetCurrentObject(hdc, OBJ_PEN);
+
+. 点式画笔和虚线等的点和虚线之间的空隙颜色由 背景模式 和 背景颜色 来控制:
+	1. 背景模式:
+		. 默认的是不透明(OPAQUE)的, 不透明的时候使用背景颜色来填充空隙;
+		. SetBkMode(hdc, TRANSPARENT); 将背景模式设置成透明的阻止windows填充空隙;
+	2. 背景颜色:
+		. 默认是白色;
+		. 可以通过SetBkColor(hdc, crColor); 来改变windows填充空隙的背景颜色;
+		. 当前背景颜色可以通过GetBkColor()获得;

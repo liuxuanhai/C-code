@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-11-3 10:59:43 -->
+<bookinfo xmlns:prd="www.HeabKing.com" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="www.HeabKing.com P097include代码重用3.xsd">
+  <book bookid="A0001">
+    <title>Java</title>
+    <author authorid="c1234">
+      <xing>Sun</xing>
+      <ming>Bin</ming>
+    </author>
+  </book>
+</bookinfo>

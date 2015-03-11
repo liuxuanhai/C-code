@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Build: 2014-11-1 20:26:02 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CUSTOMER" type="custtype"/>
+  <xs:complexType name="custtype">
+    <xs:sequence>
+      <xs:group ref="custname" />   <!-- 通过使用通用名将一组元素整合到一起 -->
+              <!-- 这里是引用 -->
+      <xs:element name="ADDRESS" type="addtype" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addtype">
+    <xs:choice>
+      <xs:element name="RESIDENCE" type="xs:string" />
+      <xs:element name="OFFICE" type="xs:string" />
+    </xs:choice>
+  </xs:complexType>
+  <xs:group name="custname">  <!-- 这里是定义 -->
+    <xs:sequence>
+      <xs:element name="FIRSTNAME" type="xs:string"/>
+      <xs:element name="LASTNAME" type="xs:string"/>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

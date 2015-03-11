@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+           xmlns:prd="www.HeabKing.com"         
+           targetNamespace="www.HeabKing.com">
+  <!-- 指定此模式所在命名空间, 并指明所引用模式所在的命名空间 -->
+  <include schemaLocation="P097include代码重用1.xsd"/>
+  <include schemaLocation="P097include代码重用2.xsd"/>
+  <element name="bookinfo" type="prd:infotype"/>
+  <complexType name="infotype">
+    <sequence>
+      <element name="book" type="prd:booktype"/>
+    </sequence>
+  </complexType>
+  <complexType name="booktype">
+    <sequence>
+      <element name="title" type="string"/>
+      <element name="author" type="prd:atype"/>
+    </sequence>
+    <attribute name="bookid" type="prd:bid"/>
+  </complexType>
+  <complexType name="atype">
+    <sequence>
+      <element name="xing" type="string"/>
+      <element name="ming" type="string"/>
+    </sequence>
+    <attribute name="authorid" type="prd:aid"/>
+  </complexType>
+</schema>

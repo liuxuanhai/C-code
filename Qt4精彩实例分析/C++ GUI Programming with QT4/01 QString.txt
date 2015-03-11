@@ -1,0 +1,4 @@
+			创建: 2014-08-26 14:59:27
+
+1.	由QString到C-String:		qPrintable(string) => QString(string).toLocal8Bit().constData()
+2.	将数字改成保存到QString:	QString str;	str.setNum(123); str.number(123); 这两个都会覆盖原有的数据 QString::number() 是静态的

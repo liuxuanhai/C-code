@@ -1,0 +1,1 @@
+﻿RichTextBox.LoadFile()默认打开的是富文件格式, 如果打开txt则需要添加RichTextBoxStreamType.PlainText

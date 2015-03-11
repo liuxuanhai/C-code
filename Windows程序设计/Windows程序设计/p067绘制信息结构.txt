@@ -1,0 +1,11 @@
+. 绘制信息结构 PAINTSTRUCT
+	. typedef struct tagPAINTSTRUCT
+	. {
+	.     HDC     hdc;          // 设备环境句柄, BeginPaint()的返回值. (冗余)
+	.     BOOL    fErase;       // erase 擦除    false: BeginPaint()函数擦除了无效区域的背景
+	.     RECT    rcPaint;      // 定义了无效矩形的边界
+	.     BOOL    fRestore;
+	.     BOOL    fIncUpdate;
+	.     BYTE    rgbReserved[32];
+	. } PAINTSTRUCT;
+. BeginPaint()函数被调用的时候, windows将会自动填充这个结构组中的各个字段. 程序只能使用前三个字段, 后面的都是windows内部使用过的.

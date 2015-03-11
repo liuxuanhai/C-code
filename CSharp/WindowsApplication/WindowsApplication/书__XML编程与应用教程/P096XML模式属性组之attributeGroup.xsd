@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Build: 2014-11-1 20:57:51 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EMPLOYEE" type="emptype"/>
+    <xs:complexType name="emptype">
+      <xs:group ref="empname"/>
+      <xs:attributeGroup ref="depdesig"/>
+    </xs:complexType>
+    <xs:group name="empname">
+      <xs:sequence>
+        <xs:element name="FIRSTNAME" type="xs:string"/>
+        <xs:element name="LASTNAME" type="xs:string"/>
+      </xs:sequence>
+    </xs:group>
+    <xs:attributeGroup name="depdesig">
+      <xs:attribute name="ID" type="xs:string"/>
+      <xs:attribute name="SEX" type="xs:string"/>
+    </xs:attributeGroup>
+</xs:schema>

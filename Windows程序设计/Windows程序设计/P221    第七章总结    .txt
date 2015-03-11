@@ -1,0 +1,89 @@
+// 第七章 鼠标
+// 7.1 鼠标的基础知识
+	// 7.1.1 一些基本术语
+
+1. 鼠标指针具有一个像素的"热点"(hot spot), 热点在显示设备上指示了一个精确的位置;
+
+	// 7.1.2 鼠标的复数形式是什么?
+// 7.2 客户区鼠标消息
+
+2. windows只把键盘消息发送到当前具有输入焦点的窗口, 鼠标消息则不同, 当鼠标经过窗口或在窗口内被单击, 则即使该窗口是非活动窗口或不带输入焦点, 窗口过程还是会收到鼠标消息(windows定义了21种鼠标消息);
+3. 对于鼠标消息: lParam低位字是x坐标, 高位字是y坐标; wParam包含了鼠标按钮, Shift键和Ctrl键的状态;MK_LBUTTON, MK_SHIFT, MK_CONTROL... (wParam & MK_SHIFT)
+4. 鼠标移经窗口的客户区时, windows系统不会为鼠标经过的每个像素位置都产生WM_MOUSEMOVE消息, 程序收到的WM_MOUSEMOVE消息个数取决于鼠标硬件和窗口过程处理鼠标移动消息的速度. 换言之, 如果队列里还有未处理的WM_MOUSEMOVE消息, Windows就不会重复向消息队列中添加该消息;
+
+	// 7.2.1 简单的鼠标处理示例
+
+5. ShowCursor(FALSE);
+   SetCursor(LoadCursor(NULL, IDC_ARROW));
+6. GetKeyState(VK_LBUTTON) 负值表示按下了鼠标按钮或相应的Shift键或Ctrl键, GetKeyState函数返回的是当前鼠标或键盘的状态, 因此, 状态信息与正被处理的消息是完全同步的;
+   while (GetKeyState(VK_LBUTTON) >= 0)是错误的, 只有在按下左键后, GetKeyState函数才会报告左键被按下的状态;
+
+   // 7.2.3 鼠标双击
+// 7.3 非客户区鼠标消息
+
+7. 非客户区鼠标消息:
+	wParam: 表示非客户区鼠标移动或单击的位置, 他的值被设定成HT为首的标识符(HT, hit-text, 击中测试);
+	lParam: x, y坐标, 这些坐标都是屏幕坐标, 可以通过ScreenToClient(hwnd, &pt); ScreenToScreen(hwnd, &pt);
+
+	// 7.3.1 击中测试消息
+
+8. 非客户区击中测试: WM_NCHITTEST, 这个消息的优先级高于其他所有的客户区和非客户区鼠标消息;
+	lParam: 屏幕坐标; wParam: 没有用到;
+	DefWindowsProc处理WM_NCHITTEST消息后返回一个可用于鼠标消息参数wParam的值, 这个返回值可以是任何一个非客户区鼠标消息的wParam参数的值, 也可以是如下的一些值:
+		HTCLIENT		客户区		ps: 如果DefWindowsProc在处理WM_NCHITTEST消息之后返回HTCLIENT, 则windows会将屏幕坐标转换成客户区坐标, 并产生一个客户区鼠标消息;
+		HTNOWHERE		不在任何窗口
+		HTTRANSPARENT	被另一个窗口覆盖的窗口
+		HTERROR			使函数DefWindowsProc产生一个警示声
+
+		// 7.3.2 消息引发消息
+
+9. 双击windows程序的系统菜单图标关闭这个窗口:
+	1. 双击产生了一系列WM_NCHITTEST消息;
+	2. 鼠标位于系统菜单图标上, 所以DefWindowProc返回HTSYSMENUU, 这时Windows在消息队列中添加WM_NCLBUTTONDBLCLK消息, 其中参数wParam等于HTSYSMENU;
+	3. 窗口过程一般将参数wParam为HTSYSMENU的WM_NCLBUTTONDBLCLK消息发送给DefWIndowProc消息;
+	4. 当DefWindowsProc接收到参数wParam为HTSYSMENU的WM_NCLBUTTONDBLCLK消息时, 系统会在消息队列中添加一个WM_SYSCOMMAND消息, wParam等于SC_CLOSE;
+	5. 窗口过程将参数wParam为SC_CLOSE的WM_SYSCOMMAND消息发送给DefWindowsProc;
+	6. DefWIndowsProc处理这个消息, 并向窗口发送WM_CLOSE消息;
+	7. 如果想在结束程序之前等待用户的确认, 窗口过程可以捕获WM_CLOSE消息, 否则, DefWindowsProc会调用DestroyWindow函数来处理WM_CLOSE消息;
+	8. 除了其他处理, DestroyWindow还会向窗口过程发送一个WM_DESTROY消息;
+
+// 7.4 程序中的击中测试
+	// 7.4.1 一个假想的例子
+	// 7.4.2 一个简单的程序
+	// 7.4.3 使用键盘模仿鼠标操作
+
+10. 即使没有安装鼠标, Windows仍然能够显示鼠标指针, Windows为这种指针保留了一个"显示计数"(display count).
+	若安装了鼠标, 则显示计数值初始值为0, 否则, 显示计数初始值为-1.
+	只有显示计数值为非负数时, 系统才显示鼠标指针;
+11. 增加显示计数: ShowCursor(TRUE);  减少显示计数: ShowCursor(FALSE);
+	如果鼠标存在, 减少显示计数仍然保留鼠标指针;
+12. 获取鼠标指针位置: GetCursorPos(&pt); 设置鼠标的位置: SetCursorPos(x, y);(这里的x, y都是屏幕坐标, ScreenToClient和ClientToScreen可以实现转换)
+
+	// 7.4.4 在CHECKER中增加键盘接口 (用键盘控制鼠标)
+	// 7.4.5 在击中测试中使用子窗口
+
+13.鼠标消息的参数lParam中包含的坐标是相对于子窗口客户区左上角的, 而不是相对于"父"窗口(即画图的主程序窗口)的客户区;
+14. 当然, 直接在父窗口客户区绘制工具区域也可以, 但是他不能使用自己的仅仅针对工具窗口的窗口类, 也不能生成一个只针对自己的消息队列, 通过子窗口这种方式有助于程序的结构化和模式化;
+
+	// 7.4.6 CHECKER程序中的子窗口
+	// 7.4.7 子窗口和键盘
+
+15. 子窗口ID: CreateWindow中的HMENU参数, 在子窗口创建的时候就是子窗口ID, 用来唯一标示这个窗口, 获取这个参数的函数是: 1. idChild = GetDlgCtrlID(hwndChild);  2. idChild = GetWindowLong(hwndChild, GWL_ID);
+16. 如果知道父窗口和子窗口ID, 还能得到子窗口句柄: hwndChild = GetDlgItem(hwndParent, idChild);
+
+
+// 7.5 捕获鼠标
+
+17. 通常, 只有鼠标指针位于窗口的客户区或非客户区时, 窗口过程才接收鼠标消息. 但是有时鼠标处于窗口范围之外时, 程序也需要接收鼠标消息, 如果是这种情况, 那么程序也能"捕获"鼠标;
+
+	// 7.5.1 设计一个矩形
+	// 7.5.2 捕获的解决方案
+
+18. 捕获鼠标: SetCapture(hwnd); ReleaseCapture(hwnd); 这时鼠标消息总是以客户区消息的形式出现, 即使鼠标位于窗口的非客户区;
+	当鼠标被捕获, 且当前没有按下鼠标按钮时, 若鼠标指针移动经过另一个窗口, 则将由指针下面的窗口接收鼠标消息, 而不是捕获鼠标的窗口, 为了防止一个程序在捕获鼠标之后没有释放他而引起整个系统的混乱, 这么做是十分必要的;
+
+	// 7.5.3 BLOKOUT2程序
+// 7.6 鼠标的滚轮
+
+19. 鼠标滚轮消息发送给具有输入焦点的窗口而不是鼠标下面的窗口;
+	鼠标滚轮消息的lParam是屏幕坐标, wParam低位字包含一系列flag, 用于指明鼠标按钮, Shift键和Ctrl键的状态, 高位字是一个"增量"(delta);

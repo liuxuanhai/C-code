@@ -1,0 +1,18 @@
+			创建 2014-08-15 13:00:00
+			复习 2014-08-27 21:21:44 stdexcept包含logic_error中的invalid_argument
+
+1.	exception头文件定义了exception类, C++可以把它用作其他异常的基类, what()虚拟成员函数返回一个字符串
+2.	stdexcept头文件定义了其他几个异常类:
+	(1)	logic_error	runtime_error 他们都从exception类派生而来, 这些类的构造函数能够接受一个string对象作为参数, 该参数提供了方法what()以C-风格字符串方式返回的字符数据
+	(2)	logic_error描述了典型的逻辑错误, 通过合理的编程可以避免这种错误, 但是实际上这些错误还是可能发生
+		. domain(领域, 域名)_error	例如: 将一个参数传递给std::sin(), 如果参数不在定义域-1到+1之间时引发domain_error异常
+		. invalid_argument 指出给函数传递了一个意外的值	例如: 如果函数希望接收一个字符串, 每个字符要么是'0'要么是'1', 但是当传递的字符串包含其他字符的时候, 就可以引发invalid_argument异常 
+		. length_error 用于指出没有足够的空间来执行所需要的操作 例如: string类的append()方法在合并的到的字符串长度超过了最大允许长度的时候, 将引发length_error
+		. out_of_bounds 通常用于指示索引错误 例如: 定义了一个类似于数组的类, 当其operator()[]在使用的索引无效时引发out_of_bounds异常
+	(3) runtime_error异常系列描述了可能在运行期间发生但是难以预计和防范的错误
+		. range_error 如果计算结果不在函数允许的范围之内, 但是没有发生上溢和下溢错误, 这种情况下, 可以使用range_error异常
+		. overflow_error 整型和浮点型都可能发生上溢错误, 当计算结果超过了某种类型能够表示的最大数量级时, 将会发生上溢错误
+		. underflow_error 下溢错误在浮点计算中, 一般而言, 存在浮点类型可以表示的最小非零值, 计算结果比这个值还小的时候导致下溢错误
+3.	terminate() 和 set_terminate() 
+	(1) 这两个函数都是在exception中声明的
+	(2) terminate()函数默认的是调用abort()函数, set_terminate()函数用于修改terminate()函数应该调用的函数

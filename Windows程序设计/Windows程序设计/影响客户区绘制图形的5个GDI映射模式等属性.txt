@@ -1,0 +1,8 @@
+. windows将逻辑单位转换成设备单位是有五个GDI属性控制的:
+	1. 映射模式:   映射模式有8种   SetMapMode(hdc, iMapMode);  iMapMode = GetMapMode(hdc);
+		1. MM_TEXT   MM(MapMode)   默认的映射模式, 在这种模式下, 逻辑单位和物理单位相同, 这允许我们直接以像素为单位进行操作;
+		2. MM_LOGENLISH  0.01in.   一个逻辑单位等于百分之一英寸
+	2. 窗口原点:
+	3. 视口原点:
+	4. 窗口范围:
+	5. 视口范围:

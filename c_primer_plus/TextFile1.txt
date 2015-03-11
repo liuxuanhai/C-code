@@ -1,0 +1,5 @@
+我告诉你怎哦哦么写代码
+首先 一个工程只能有一个main函数 懂这句话不不太懂p038以十进制八进制和十六进制输出100.obj : error LNK2005: _main 已经在 源.obj 中定义
+1>C:\Users\Administrator\Desktop\VS2012\c_primer_plus\Debug\c_primer_plus.exe : fatal error LNK1169: 找到一个或多个多重定义的符号
+
+开始执行不调试 这个是运行程序的我知道

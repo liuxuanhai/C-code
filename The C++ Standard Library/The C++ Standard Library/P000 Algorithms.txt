@@ -1,0 +1,37 @@
+创建: 2014-8-20 15:43:29
+
+		搜寻, 排序, 拷贝, 重新排序, 修改, 数值运算...
+
+		关于算法的小讨论: 
+			1.	关于有些算法的参数类别
+				for_each() 是一个模板函数, 对他的参数没有要求, 根据参数生成相应的版本定义, 第三个参数应该传入一个只有一个参数的"函数"是因为for_each()中有f(elem) 这样的使用, 这里是使用方法限定了参数的类型大致符合什么样的表现行为
+
+一	搜寻
+	1.	min(); max();
+	2.	pos = min_element(begin, end);	pos = max_element(begin, end);
+	3.	pos = find(beg, end, element);	寻找第一次出现element的位置
+	4.	pos = find_if(beg, end, (UnaryPredicate));	bool unaryPredicate(elemType);	在给定区间内寻找使"被传入一元判断式"运算结果为true的第一个元素, 如果没有找到, 返回第二个参数end
+
+二	排序
+	1.	sort(begin, end);
+	2.	reverse(begin, end);	倒置
+
+三	拷贝
+	1.	swap()
+	2.	copy(beg1, end1, beg2)	必须确保beg2开始的区间有足够的大小 只要指向类型一直就行 vector<int> list<int>可以相互拷贝 关联容器不会用于覆写算法
+	3.	unique_copy(beg1, end1, beg2)	将[beg1, end1)中的值无重复的copy
+
+四	比较
+	1.	equal(beg1, end1, beg2)
+
+五	移除
+	1.	remove(beg, end, elem)	将区间内所有==elem的元素移除, 不会缩小size(), 后边的元素向前移动, 后边可能会有逻辑群集以外的元素, 返回逻辑结束位置迭代器end		算法不一定比成员函数好, 如: remove对list的时候, 将后边的元素替换被移除的简直是逗逼, 让list的删除优势没了
+	2.	rempve_if(beg, end, unary predicate) eg: remove_if(coll2.begin(), coll2.end(), bind2nd(less<int>(), 50)) 将所有小于50的都移除
+
+六	修改
+	1.	replace_if(beg, end, unary predicate, value)	如果一元判断式判定为true, 用value替换当前*pos
+
+七	其他
+	1.	distance(pos1, pos2)	返回两个迭代器之间的距离, 双向迭代器不能相减, 但是可以使用这个计算
+	2.	for_each(beg, end, void f(elemType))将函数作用于区间内的每个元素 函数要求:
+	3.	transform(beg, end, insert(endPos, elem), elemType f(elemType))	将区间中的每个元素被f操作后插入endPos之前

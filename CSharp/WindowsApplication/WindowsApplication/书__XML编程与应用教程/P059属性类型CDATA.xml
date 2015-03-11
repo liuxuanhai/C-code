@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Build: 2014-10-26 16:39:01 CDATA 纯文本 -->
+<!DOCTYPE 家庭[
+  <!ELEMENT 家庭 (人+,家电*)>
+  <!ELEMENT 人 EMPTY>
+  <!ELEMENT 家电 EMPTY>
+
+  <!ATTLIST 人 
+      名字 CDATA #REQUIRED
+      年龄 CDATA #REQUIRED
+      爱好 CDATA #IMPLIED
+    >
+
+  <!ATTLIST 家电
+    名称 CDATA #REQUIRED
+    数量 CDATA #REQUIRED
+    说明 CDATA #IMPLIED
+  >
+]>
+
+<家庭>
+  <人 名字="张三" 年龄="25"/>
+  <人 名字="李四" 年龄="38" 爱好="打篮球"/>
+  <家电 名称="彩电" 数量="3"/>
+</家庭>

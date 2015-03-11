@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Build: 2014-10-26 17:04:41 ID: 元素唯一标识 -->
+<!DOCTYPE 公司[
+  <!ELEMENT 公司 ANY>
+  <!ELEMENT 公司职员 (#PCDATA)>
+  <!ATTLIST 公司职员
+    编号 ID #REQUIRED
+    姓名 CDATA #REQUIRED
+  >
+]>
+
+<公司>
+  <公司职员 编号="Z001" 姓名="张三"/> <!-- 编号的属性值不能以数字开头 -->
+  <公司职员 编号="Z002" 姓名="李四"/>
+</公司>

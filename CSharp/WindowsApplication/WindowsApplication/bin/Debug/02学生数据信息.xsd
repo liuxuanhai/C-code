@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Build: 2014-11-4 13:53:03 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="学生们">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="学生" type="stuInfoType" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="stuInfoType">
+    <xs:sequence>
+      <!--<xs:element name="姓名">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="学号" type="xs:long"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>-->
+      <xs:element name="学号"/>
+      <xs:element name="姓名"/>
+      <xs:element name="性别"/>
+      <xs:element name="生日"/>
+      <xs:element name="民族"/>
+      <xs:element name="地址"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

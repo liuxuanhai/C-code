@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3A603DE1-D98B-4B99-AB73-F8F658F1DAE6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsApplication</RootNamespace>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="书__CSharp高级编程\P1190TextBox控件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__CSharp高级编程\P1190TextBox控件.Designer.cs">
+      <DependentUpon>P1190TextBox控件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__XML编程与应用教程\P274XmlDOM的学习.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__XML编程与应用教程\P274XmlDOM的学习.Designer.cs">
+      <DependentUpon>P274XmlDOM的学习.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\01HeabCalculator1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\01HeabCalculator1.Designer.cs">
+      <DependentUpon>01HeabCalculator1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\01HeabCalculatorIO.cs" />
+    <Compile Include="我的项目\01测试之显示模块.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\01测试之显示模块.Designer.cs">
+      <DependentUpon>01测试之显示模块.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P176MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P176MainFrm.Designer.cs">
+      <DependentUpon>P176MainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P170AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P170AboutForm.Designer.cs">
+      <DependentUpon>P170AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P035接口的学习.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P035接口的学习.Designer.cs">
+      <DependentUpon>P035接口的学习.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P015HelloWorldFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P015HelloWorldFrm.Designer.cs">
+      <DependentUpon>P015HelloWorldFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelloWorldMain.cs" />
+    <Compile Include="书__VisualCSharp程序设计教程\P146windows窗体与事件驱动.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P146windows窗体与事件驱动.Designer.cs">
+      <DependentUpon>P146windows窗体与事件驱动.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P159Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P159Login.Designer.cs">
+      <DependentUpon>P159Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P167CourseMsgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P167CourseMsgFrm.Designer.cs">
+      <DependentUpon>P167CourseMsgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P179三种对话框.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P179三种对话框.Designer.cs">
+      <DependentUpon>P179三种对话框.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P179三种对话框_对话框窗体.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P179三种对话框_对话框窗体.Designer.cs">
+      <DependentUpon>P179三种对话框_对话框窗体.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P184一个文本编辑器.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P184一个文本编辑器.Designer.cs">
+      <DependentUpon>P184一个文本编辑器.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P200读写文本文件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P200读写文本文件.Designer.cs">
+      <DependentUpon>P200读写文本文件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P202读写二进制文件.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P202读写二进制文件.Designer.cs">
+      <DependentUpon>P202读写二进制文件.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P203对象的序列化.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P203对象的序列化.Designer.cs">
+      <DependentUpon>P203对象的序列化.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P206OpenFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P206OpenFileDialog.Designer.cs">
+      <DependentUpon>P206OpenFileDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P210FolderBrowseDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P210FolderBrowseDialog.Designer.cs">
+      <DependentUpon>P210FolderBrowseDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\01测试之输入输出模块.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\01测试之输入输出模块.Designer.cs">
+      <DependentUpon>01测试之输入输出模块.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\00AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\00AboutForm.Designer.cs">
+      <DependentUpon>00AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\02学生管理系统.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\02学生管理系统.Designer.cs">
+      <DependentUpon>02学生管理系统.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\02添加学生信息.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\02添加学生信息.Designer.cs">
+      <DependentUpon>02添加学生信息.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\02获取要查找的学号.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\02获取要查找的学号.Designer.cs">
+      <DependentUpon>02获取要查找的学号.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\Player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\Player.Designer.cs">
+      <DependentUpon>Player.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="书__VisualCSharp程序设计教程\P164StudentMsgFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="书__VisualCSharp程序设计教程\P164StudentMsgFrm.Designer.cs">
+      <DependentUpon>P164StudentMsgFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\HeabPlayer1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\HeabPlayer1.Designer.cs">
+      <DependentUpon>HeabPlayer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="我的项目\大雄计算器.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="我的项目\大雄计算器.Designer.cs">
+      <DependentUpon>大雄计算器.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="书__CSharp高级编程\P1190TextBox控件.resx">
+      <DependentUpon>P1190TextBox控件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P170AboutForm.resx">
+      <DependentUpon>P170AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P015HelloWorldFrm.resx">
+      <DependentUpon>P015HelloWorldFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P035接口的学习.resx">
+      <DependentUpon>P035接口的学习.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P146windows窗体与事件驱动.resx">
+      <DependentUpon>P146windows窗体与事件驱动.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P159Login.resx">
+      <DependentUpon>P159Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P167CourseMsgFrm.resx">
+      <DependentUpon>P167CourseMsgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P176MainFrm.resx">
+      <DependentUpon>P176MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P179三种对话框.resx">
+      <DependentUpon>P179三种对话框.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P179三种对话框_对话框窗体.resx">
+      <DependentUpon>P179三种对话框_对话框窗体.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P184一个文本编辑器.resx">
+      <DependentUpon>P184一个文本编辑器.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P200读写文本文件.resx">
+      <DependentUpon>P200读写文本文件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P202读写二进制文件.resx">
+      <DependentUpon>P202读写二进制文件.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P203对象的序列化.resx">
+      <DependentUpon>P203对象的序列化.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P206OpenFileDialog.resx">
+      <DependentUpon>P206OpenFileDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P210FolderBrowseDialog.resx">
+      <DependentUpon>P210FolderBrowseDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="书__XML编程与应用教程\P274XmlDOM的学习.resx">
+      <DependentUpon>P274XmlDOM的学习.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\01HeabCalculator1.resx">
+      <DependentUpon>01HeabCalculator1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\01测试之显示模块.resx">
+      <DependentUpon>01测试之显示模块.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\01测试之输入输出模块.resx">
+      <DependentUpon>01测试之输入输出模块.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\00AboutForm.resx">
+      <DependentUpon>00AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\02学生管理系统.resx">
+      <DependentUpon>02学生管理系统.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\02添加学生信息.resx">
+      <DependentUpon>02添加学生信息.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\02获取要查找的学号.resx">
+      <DependentUpon>02获取要查找的学号.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\Player.resx">
+      <DependentUpon>Player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="书__VisualCSharp程序设计教程\P164StudentMsgFrm.resx">
+      <DependentUpon>P164StudentMsgFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\HeabPlayer1.resx">
+      <DependentUpon>HeabPlayer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="我的项目\大雄计算器.resx">
+      <DependentUpon>大雄计算器.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="书__XML编程与应用教程\P030DTD文件和XML文件结合.dtd" />
+    <None Include="书__XML编程与应用教程\P076XML模式属性组之sequence.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P092XML模式属性组之choice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P092XML模式属性组之group.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P095XML模式属性组之all.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P096XML模式属性组之attributeGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P097include代码重用1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P097include代码重用2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\P097include代码重用3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="书__XML编程与应用教程\XMLStudy.spp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\panda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\newStu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\contacts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\bear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="书__CSharp高级编程\P1190测试LoadFile.txt" />
+    <Content Include="书__XML编程与应用教程\P000Net下的XML操作接口.txt" />
+    <Content Include="书__XML编程与应用教程\P030DTD文件和XML文件结合.xml" />
+    <Content Include="书__XML编程与应用教程\P031含有中文字符的XML.xml" />
+    <Content Include="书__XML编程与应用教程\P045命名空间的学习.xml" />
+    <Content Include="书__XML编程与应用教程\P047内部DTD的学习.xml" />
+    <Content Include="书__XML编程与应用教程\P059属性类型CDATA.xml" />
+    <Content Include="书__XML编程与应用教程\P060属性类型NMTOKEN和NMTOKENS.xml" />
+    <Content Include="书__XML编程与应用教程\P062属性类型ID.xml" />
+    <Content Include="书__XML编程与应用教程\P064属性类型IDREF.xml" />
+    <Content Include="书__XML编程与应用教程\P066属性类型Enumerated.xml" />
+    <Content Include="书__XML编程与应用教程\P068entity实体.xml" />
+    <Content Include="书__XML编程与应用教程\P076XML模式属性组之sequence.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="书__XML编程与应用教程\P092XML模式属性组之choice.xml" />
+    <Content Include="书__XML编程与应用教程\P092XML模式属性组之group.xml" />
+    <Content Include="书__XML编程与应用教程\P095XML模式属性组之all.xml" />
+    <Content Include="书__XML编程与应用教程\P096XML模式属性组之attributeGroup.xml" />
+    <Content Include="书__XML编程与应用教程\P098include代码重用.xml" />
+    <Content Include="书__XML编程与应用教程\P273XmlDOM的学习.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

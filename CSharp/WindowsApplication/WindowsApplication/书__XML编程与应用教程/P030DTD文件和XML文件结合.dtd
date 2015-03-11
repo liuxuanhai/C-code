@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT productdata (product)+> <!-- 元素类型通过ELEMENT定义 这里productdata是元素名称 后边是<元素> </元素>之间可以包含的内容 -->
+            <!-- ANY 元素出现的次数和顺序不受限制  EMPTY 元素中没有内容 #PCDATA 纯文本元素(简单元素) -->
+            <!-- 正则表达式: ? 不出现或只出现一次    * 不出现或出现多次    + 必须出现一次以上    无符号 只能出现一次 -->
+            <!-- 正则表达式用法: ()用来给元素分组 (古龙|金庸|梁羽生),(王素,于杰),毛毛 分成三组, 王素或者于杰必须出现, 两者至少选一个 -->
+<!ELEMENT product (productname,description,price,quantity)>
+<!ELEMENT productname (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT quantity (#PCDATA)>
+<!ATTLIST product productid ID #REQUIRED CATEGORY (BOOKS|TOYS) "TOYS">
+<!-- <!ATTLIST 元素名 属性名称 属性类型 属性特点 ... > -->
+<!-- 属性特点: #REQUIRED 必须赋值    #IMPLIED 可有可无, 没有默认值    #FIXED"默认值" 固定取值, 默认值不能被改变  "默认值" 给予默认值, 可改可忽略 -->
+<!-- 属性类型: CDATA 纯文本    Enumerated取值来自一个范围(男|女|人妖)    ID 元素唯一标识    IDREF IDREFS(用空格隔开) 属性值引用已定义的ID值    ENTITY 取值为一个已定义的实体    ENTITIES 包含多个外部entity, 空格隔开    NMTOKEN 只能由字母数字下划线.:-组成    NMTOKENS 可以有多个nmtoken组成, 空格隔开    NOTATION 取值为一个DTD中声明的符号 -->

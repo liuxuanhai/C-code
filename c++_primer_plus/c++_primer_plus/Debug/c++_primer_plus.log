@@ -1,0 +1,11 @@
+﻿生成启动时间为 2014/10/19 14:07:38。
+     1>项目“C:\Users\daxiong\desktop\VS2012\Code\c++_primer_plus\c++_primer_plus\c++_primer_plus.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         G:\微软\VS2012\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "源1.cpp"
+         源1.cpp
+     1>c:\users\daxiong\desktop\vs2012\code\c++_primer_plus\c++_primer_plus\源1.cpp(6): error C2065: “a”: 未声明的标识符
+     1>已完成生成项目“C:\Users\daxiong\desktop\VS2012\Code\c++_primer_plus\c++_primer_plus\c++_primer_plus.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:01.46

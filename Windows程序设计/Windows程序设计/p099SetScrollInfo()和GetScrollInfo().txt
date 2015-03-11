@@ -1,0 +1,18 @@
+原来的四个滚动条函数: SetScrollRange(), SetScrollPos(), GetScrollRange(), GetScrollPos()
+新函数: SetScrollInfo(), GetScrollInfo(), 他们的新功能如下:
+    1. 可以设定页面的大小(即设定了滑块的大小).
+    2. 滚动条的范围更大.
+
+SetScrollInfo(hwnd, iBar, &si, bRedraw);
+GetScrollInfo(hwnd, iBar, &si);
+
+typedef struct tagSCROLLINFO
+{
+	UINT cbSIZE;  // 设为sizeof(SCROLLINFO);
+	UINT fMask;   // 想要设置或获取的值
+	int nMin;     // 范围的最小值
+	int nMax;     // 范围的最大值
+	UINT nPage;   // 页面大小       如果不希望滑块的大小发生变化, 就不用设置这个标志
+	int nPos;     // 当前位置
+	int nTrackPos;// 当前追踪位置   
+} SCROLLINFO, * PSCROLLINFO;

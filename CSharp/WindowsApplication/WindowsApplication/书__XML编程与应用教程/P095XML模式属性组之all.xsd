@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Build: 2014-11-1 20:47:38 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="persionname">
+    <xs:complexType>
+      <xs:all minOccurs="1">    <!-- all元素常用于group元素和complexType元素中, 它允许其中的元素任意显示 -->
+        <!-- all中的元素顺序任意, 但是必须要出现且每次最多显示一次 -->
+        <xs:element name="first" type="xs:string"/>
+        <xs:element name="middle" type="xs:string"/>
+        <xs:element name="last" type="xs:string"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

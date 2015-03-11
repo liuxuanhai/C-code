@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-11-1 18:23:14 -->
+<name xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="P092XML模式属性组之choice.xsd">
+  <first>一</first>
+  <middle>二</middle>  <!-- 互斥报错 -->
+  <last>黑色</last>
+</name>

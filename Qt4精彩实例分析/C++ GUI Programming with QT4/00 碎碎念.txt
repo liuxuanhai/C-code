@@ -1,0 +1,4 @@
+			创建: 2014-08-26 16:50:26
+
+1.	在QGridLayout加入伸展器的方法	Layout->addItem(new QSpacerItem(50/*width*/, 50/*height*/, QSizePolicy::Minimum, QSizePolicy::Expanding), 4, 1);				// 在GridLayout中加入伸展器
+2.	创造一个内凹的QLabel			QFrame::setFrameStyle(QFrame::Panel画框 | QFrame::Sunken内凹)	QLabel继承于QFrame

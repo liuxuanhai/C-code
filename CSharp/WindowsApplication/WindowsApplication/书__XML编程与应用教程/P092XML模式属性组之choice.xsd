@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Build: 2014-11-1 18:18:27 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="name">
+    <xs:complexType>  <!-- 一定要把xs:choice放在<xs:complexType>中 -->
+      <xs:choice>     <!-- choice中的元素只能出现一个, 他们是互斥的 -->
+        <xs:element name="first" type="xs:string" />
+        <xs:element name="middle" type="xs:string" />
+        <xs:element name="last" type="xs:string" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

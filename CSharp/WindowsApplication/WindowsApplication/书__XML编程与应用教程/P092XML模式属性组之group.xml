@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-11-1 20:25:02 -->
+<CUSTOMER xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="P092XML模式属性组之group.xsd">
+  <FIRSTNAME>Heab</FIRSTNAME>
+  <LASTNAME>King</LASTNAME>
+  <ADDRESS>
+    <RESIDENCE>十号大街, 北京</RESIDENCE>
+  </ADDRESS>
+</CUSTOMER>

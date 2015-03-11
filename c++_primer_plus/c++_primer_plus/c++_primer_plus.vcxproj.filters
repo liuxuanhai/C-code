@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\补充积累">
+      <UniqueIdentifier>{0ca5512b-a971-4c37-8b12-791adf6aac6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\类的研究">
+      <UniqueIdentifier>{e73d0caf-7d11-4d22-a04f-71756013ab14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\C++ DLL">
+      <UniqueIdentifier>{4fa0c921-740c-459b-ae85-bd853d7dec08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\C++ PP">
+      <UniqueIdentifier>{80b459df-5c7a-4e83-9e43-39d2db5f3478}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\我的项目">
+      <UniqueIdentifier>{1ec32e70-02a8-4f55-b97e-ca23c9a4428a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\名题精选">
+      <UniqueIdentifier>{4345a805-6473-447b-bd12-4d18d0998cdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="测试.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="像素鸟.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="五子棋.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="扫雷.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="001 C语言多线程.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="002 C++11多线程.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="003 pragma 预处理指令大全.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="004 数值的上溢下溢和负数转整数.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="005 关于operator[].cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="006 数字和文本之间的转换.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="007 模板类别传值.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="008 模板的具体化实例化.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="009 C++与Java的比较.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 001类之股票类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 001类之股票类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 002类之ADT栈实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 002类之ADT栈客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 003类之Time类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 003类之Time类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 004类之单位转换类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 004类之单位转换类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 005类之dxString类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 005类之dxString类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 006类之队列类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 006类之队列类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 007类继承之台球俱乐部会员管理类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 007类继承之台球俱乐部会员管理类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 008类多态public继承之银行账户类实现文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="研究 - 008类多态public继承之银行账户类客户文件.cpp">
+      <Filter>源文件\类的研究</Filter>
+    </ClCompile>
+    <ClCompile Include="000 获取控制台窗口句柄.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="p012helloword.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p021cout的功能.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p024cin和cout.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p028sqrt%28%29函数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p040使用climits.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p041 climits头文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p043 c++的多种初始化方法.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p046cout输出八进制和十六进制.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p048cout.put().cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p057float和double.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p057转义序列.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p058浮点数的精度问题.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p076数组与字符串.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p081getline()和get()函数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p084string的结合赋值等.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p086string类IO.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p089结构.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p094共用体.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p101指针的危险.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p103new动态分配内存.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p106动态数组.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p109数组的地址.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p111不同形式的字符串(数组和指针).cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p115new创建动态结构.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p116节省内存的小技巧.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p119结构指针数组.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p121vector和array和数组.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p124动态结构.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p124组合字符串.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p124结构声明访问.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p127for循环的测试表达式.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p132for循环修改步长.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p133for循环反向显示string对象.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p145string类与关系运算符.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p149延迟循环.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p150倒计时小软件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p152基于范围的for循环.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p153统计字符的程序.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p155EOF文件结尾.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p158cin_put()和cin_get().cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p164编程练习4.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p178cctype的使用.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p184枚举常量用作switch标签.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p186continue与for和while.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p187cin读取数字的循环.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p187goto语句.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p189处理错误输入.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p192文件输出.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p195文件输入.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p200编程练习1.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p200编程练习3.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p201编程练习8.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p218函数实现模块化编程.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p221使用数组区间的函数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p225函数间传递数组.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p227程序清单 7_10.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p229传递和返回结构.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p232将极坐标转换成直角坐标.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p235string对象数组.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p237array对象的传递.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p240递归.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p246函数指针.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p251编程练习6.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p253    第八章模板总结    .cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p255总结  引用引用引用.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p264引用实现结构的传递.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p269引用实现类对象的传递.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p272类继承的两个特性.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p275默认参数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p279函数重载.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p282函数模板.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p283模板重载.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p286显示具体化.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="P291函数的选择___部分排序规则.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p293函数的选择___自己选择.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p297decltype关键字.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p298编程练习1.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p299编程练习2.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p299编程练习3.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p299编程练习5.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p299编程练习6.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p302单独编译main.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p302单独编译others.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p312 总结 - 链接性 作用域 持续时间.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p312 总结 - 链接性 作用域 持续时间2.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p312变量持续性作用域连接性.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p312变量持续性作用域连接性2.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p314静态变量连接性.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p315静态变量无连接性.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p315静态变量连接性2.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p321new.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p322 常规new和定位new.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p322new常规与定位运算符.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p326名称空间.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p327using声明.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p328using声明和using编译指令的区别.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p328using编译指令下对作用域中已经存在的变量的处理.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p329名称空间的覆盖问题20140806.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p332名称空间1.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p333名称空间2.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p338编程练习1_标准答案01.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p338编程练习1_标准答案02.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p339编程练习3.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p346 初始类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p346初识类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p349 初始类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p349初识类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p357构造函数和析构函数_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p359构造函数和析构函数_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p366this指针_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p369this指针_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p374抽象数据类型_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p375抽象数据类型_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p377编程练习1_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p377编程练习1_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p377编程练习2_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p377编程练习2_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习4_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习4_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习5_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习5_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习7.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习8_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习8_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习8_标准答案_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p378编程练习8_标准答案_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p381无重载运算符的时间相加_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p383无重载运算符的时间相加_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p384运算符重载实现时间相加_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p384运算符重载实现时间相加_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p395cout输出时间(重载运算符)_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p395cout输出时间(重载运算符)_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p401矢量类_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p408矢量类_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p412类型转换_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p412类型转换_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p418类型转换函数_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p422 编程练习1(随机漫步).cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p422编程练习1%28随机漫步%29.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p423 编程练习5(类型转换).cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p423编程练习2%28矢量类%29.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p423编程练习5(类型转换).cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p423编程练习7(复数运算).cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p426在类中使用动态内存管理.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p442string类的部分功能的实现.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p442string类的部分功能的实现_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p445string类的部分功能实现_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p451使用指向对象的指针.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p456定位new运算符与对象.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p481类的继承_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p481类的继承_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p481类的继承_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p491类的继承与多态_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p491类的继承与多态_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p511抽象基类_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p514抽象基类_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p519继承中的动态内存分配和友元函数调用_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p520继承中的动态内存分配和友元函数的调用_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p522继承中的动态内存分配和友元函数调用_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p532编程练习1_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p532编程练习1_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p533编程练习2_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p533编程练习2_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p533编程练习3_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p533编程练习3_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p537Has-a关系之包含_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p540Has-a关系之包含_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p541Has-a关系之包含_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p546Has-a关系之私有继承_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p548Has-a关系之私有继承_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p552MI_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p553MI_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p554MI_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p560MI深度学习_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p562MI深度学习_实现文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p564MI深度学习_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p569栈模板_头文件和实现文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p571栈模板_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p574栈模板并且大小可变_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p575栈模板并且大小可变_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p579数组模板示例和非类型参数_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p580两种类型参数的模板.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p584成员模板.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p587模板参数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p589模板与友元_非模板友元.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p591模板与友元_约束模板.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p593模板与友元_非约束模板友元.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p596复习题4_模拟编译器生成模板对应的类声明.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p597编程练习1_Pair模板valarray的使用.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p598编程练习2_私有继承实现练习1.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p598编程练习4_MI.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p605友元类TV_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p610部分友元类_客户文件.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p613模板中嵌套类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p616abort()异常.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p618比异常更好地方法.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p619异常.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p623抛出对象的异常.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p626栈解退.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p633bad_alloc异常.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p634异常_类_继承.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p645RTTI之dynamic_cast运算符.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p647RTTI之typeid进行类型判断.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p651const_cast运算符.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p654编程练习1_友元.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p654编程练习1_友元_标准答案.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p654编程练习2_异常.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p656string类的构造函数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p660从文件中读取字符串.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p662string类的find%28%29写的猜字游戏.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p665capacity()和reserve().cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p669智能指针.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p671一个不适合使用auto_ptr的例子.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p675vector类.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p679vector类中的方法.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p682STL函数.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p692copy()istream迭代器和反向迭代器.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p739write()方法.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="p741浮点数输出格式.cpp">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="习题解答.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </ClCompile>
+    <ClCompile Include="001 测试 隐式链接.cpp">
+      <Filter>源文件\C++ DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="002 测试 使用模块定义文件.cpp">
+      <Filter>源文件\C++ DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="003 测试 动态链接DLL.cpp">
+      <Filter>源文件\C++ DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="我的项目\01 HeabKing 文件中的文本替换.cpp">
+      <Filter>源文件\我的项目</Filter>
+    </ClCompile>
+    <ClCompile Include="我的项目\HeabUtility.cpp">
+      <Filter>源文件\我的项目</Filter>
+    </ClCompile>
+    <ClCompile Include="我的项目\源.cpp">
+      <Filter>源文件\我的项目</Filter>
+    </ClCompile>
+    <ClCompile Include="我的项目\01 Heab Excel文件特征项替换.cpp">
+      <Filter>源文件\我的项目</Filter>
+    </ClCompile>
+    <ClCompile Include="010 调用其他exe文件.cpp">
+      <Filter>源文件\补充积累</Filter>
+    </ClCompile>
+    <ClCompile Include="名题精选\001 最长平台.cpp">
+      <Filter>源文件\名题精选</Filter>
+    </ClCompile>
+    <ClCompile Include="源.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="源1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="学习重点.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="书籍.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="研究 - 002类之ADT栈.h">
+      <Filter>源文件\类的研究</Filter>
+    </Text>
+    <Text Include="000 关于类中的静态数据初始化.txt">
+      <Filter>源文件\类的研究</Filter>
+    </Text>
+    <Text Include="p001      第一章总结      .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p012      第二章总结      .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p037    第三章总结    .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p070    第四章总结    .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p125    第五章总结    .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p192文件输出.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p195文件输入.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p253    第八章总结    .txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p272显微镜资料.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p377复习题.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p422随机漫步数据.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p524类设计知识点.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p631Exceptional类.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="p660从文件中读取字符串.txt">
+      <Filter>源文件\C++ PP</Filter>
+    </Text>
+    <Text Include="Test.txt">
+      <Filter>源文件\我的项目</Filter>
+    </Text>
+    <Text Include="测试.txt">
+      <Filter>源文件\我的项目</Filter>
+    </Text>
+    <Text Include="02 Heab 垃圾邮件关键内容.txt">
+      <Filter>源文件\我的项目</Filter>
+    </Text>
+    <Text Include="010 调用其他exe文件 3个SDK函数.txt">
+      <Filter>源文件\补充积累</Filter>
+    </Text>
+    <Text Include="Java.txt">
+      <Filter>源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="五子棋.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 001类之股票类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 003类之Time类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 004类之单位转换类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 005类之dxString类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 006类之队列类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 007类继承之台球俱乐部会员管理类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="研究 - 008类多态public继承之银行账户类.h">
+      <Filter>源文件\类的研究</Filter>
+    </ClInclude>
+    <ClInclude Include="p301单独编译.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p331名称空间示例.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p338编程练习1_标准答案.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p343 初始类.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p343初识类.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p356构造函数和析构函数.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p365this指针.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p373抽象数据类型.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p377编程练习1.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p377编程练习2.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p378编程练习4.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p378编程练习5.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p378编程练习7.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p378编程练习8.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p378编程练习8_标准答案.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p381无重载运算符的时间相加.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p384运算符重载实现时间相加.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p395cout输出时间(重载运算符).h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p400矢量类.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p411类型转换.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p491类的继承与多态_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p510抽象基类_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p531编程练习1_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p532编程练习2_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p533编程练习3_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p544Has-a关系之私有继承_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p577数组模板示例和非类型参数_头文件.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p603友元类TV.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="p609部分友元类.h">
+      <Filter>源文件\C++ PP</Filter>
+    </ClInclude>
+    <ClInclude Include="我的项目\01 Head.h">
+      <Filter>源文件\我的项目</Filter>
+    </ClInclude>
+    <ClInclude Include="我的项目\HeabUtility.h">
+      <Filter>源文件\我的项目</Filter>
+    </ClInclude>
+    <ClInclude Include="标头1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="p625异常 栈解退.png">
+      <Filter>源文件\C++ PP</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="010 Console 执行完输入回车.exe">
+      <Filter>源文件\补充积累</Filter>
+    </None>
+    <None Include="010 Console 执行完退出.exe">
+      <Filter>源文件\补充积累</Filter>
+    </None>
+    <None Include="Java.bat">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="Java.java">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

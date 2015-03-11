@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>  <!-- 声明语句 -->
+<!-- Build: 2014-10-25 16:47:55 命名空间的学习 -->
+<body>	<!-- 所有xml文档必须有且只有一个根元素 -->
+	<!-- 第一种: 默认声明 -->
+	<table xmlns="www.HeabKing.com/fruit">	<!-- 属性值必须有"" -->
+		<tr>
+			<td>Apple</td>
+			<td>Banana</td>
+		</tr>
+	</table>
+	<table xmlns="www.HeabKing.com/furniture">
+		<name>餐桌</name>
+		<width>80</width>
+		<length>120</length>
+	</table>
+	<!-- 第二种: 明确声明 -->
+	<h:table xmlns:h="www.HeabKing.com/fruit2">
+	<h:tr>
+		<h:td>Apple</h:td>
+		<h:td>Banana</h:td>
+	</h:tr>
+	</h:table>
+	<f:table xmlns:f="www.HeabKing.com/furniture2">
+		<f:name>餐桌</f:name>
+		<f:width>80</f:width>
+		<f:length>120</f:length>
+	</f:table>
+</body>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="www.HeabKing.com">
+  <simpleType name="aid">
+    <restriction base="string">
+      <pattern value="[c]\d{4}"/>
+      <!-- pattern 指定数据的显示规范 -->
+    </restriction>
+  </simpleType>
+</schema>

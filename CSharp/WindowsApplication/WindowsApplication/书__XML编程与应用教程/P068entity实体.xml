@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-10-26 18:26:46 实体就相当于C++中的宏似的 -->
+<!-- 预定义实体: < => &lt    > => &gt    & => &amp    ' => &apos    " => quot 任何字符都可以用实体表示&#数字值; -->
+<!DOCTYPE COMPANY[
+  <!ELEMENT COMPANY (NAME, ADDRESS)>
+  <!ELEMENT NAME (#PCDATA)>
+  <!ELEMENT ADDRESS (#PCDATA)>
+  <!ENTITY name "青岛">
+  <!ENTITY address "宁夏路">
+]>
+
+<COMPANY>
+  <NAME>&name;</NAME>
+  <ADDRESS>&address;</ADDRESS>
+</COMPANY>

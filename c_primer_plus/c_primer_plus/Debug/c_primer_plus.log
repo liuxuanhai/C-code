@@ -1,0 +1,11 @@
+﻿生成启动时间为 2014/9/26 星期五 上午 9:49:52。
+     1>项目“C:\Users\Administrator\Desktop\VS2012\c_primer_plus\c_primer_plus\c_primer_plus.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         E:\vs2012\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\VS2012\c_primer_plus\Debug\c_primer_plus.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\VS2012\c_primer_plus\Debug\c_primer_plus.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\VS2012\c_primer_plus\Debug\c_primer_plus.lib" /MACHINE:X86 Debug\daxiong.obj
+     1>MSVCRTD.lib(crtexe.obj) : error LNK2019: 无法解析的外部符号 _main，该符号在函数 ___tmainCRTStartup 中被引用
+     1>C:\Users\Administrator\Desktop\VS2012\c_primer_plus\Debug\c_primer_plus.exe : fatal error LNK1120: 1 个无法解析的外部命令
+     1>已完成生成项目“C:\Users\Administrator\Desktop\VS2012\c_primer_plus\c_primer_plus\c_primer_plus.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:05.72

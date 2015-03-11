@@ -1,0 +1,113 @@
+// 4. 文本输出
+
+1. windows程序几乎不能假设自己的客户区有多大, 甚至不能假设文本字符的大小, 他们必须利用windows提供的工具来获取程序运行环境的相关信息;
+
+	// 4.1 绘制和重绘
+		// 4.1.1 WM_PAINT消息
+
+2. WM_PAINT:
+	2.1 肯定产生WM_PAINT:
+		2.1.1 用户移动一个窗口, 导致原来被遮盖的部分暴露出来;
+		2.1.2 用户调整窗口的大小;
+		2.1.3 调用ScrollWindow或ScrollDC函数滚动客户区;
+		3.1.4 程序调用InvalidateRect或InvalidateRgn函数显式生成WM_PAINT消息;
+	2.2 可能产生WM_PAINT消息也可能保存被覆盖的部分:
+		2.2.1 windows关闭一个覆盖了部分窗口的对话框或消息框;
+		2.2.2 下拉菜单被拉下然后收回;
+		2.2.3 显式提示信息;
+	2.3 总是会保存被覆盖的显示内容然后恢复:
+		2.3.1 鼠标指针在客户区内移动;
+		2.3.2 在客户区内拖动图标;
+3. windows并不会保留被遮住的部分窗口, 当其他程序的窗口被移开时, windows会要求你的程序重新绘制刚才被遮住的客户区;
+
+		// 4.1.2 有效矩形和无效矩形       ps: 注意区分无效区域和无效矩形
+
+4. 收到WM_PAINT消息的时候, 需要更新整个客户区或其中一部分, 这个区域成为无效区域, 一个无效区域导致windows在应用程序的消息队列中放置一条WM_PAINT消息;
+#5. 绘制信息结构: windows为每个窗口都保存一个, 保存了可以覆盖无效区域的最小矩形的坐标和一些其他的信息, 这个最小矩形称为"无效矩形";
+6. windows不会再消息队列中放置多条WM_PAINT消息;
+7. InvalidateRect函数使一个矩形失效, GetUpdateRect函数获取无效矩形坐标, BeginPaint函数使得整个客户区有效, ValidateRect函数使得客户区中任意矩形有效;
+
+	// 4.2 GDI简介
+
+8. TextOut(hdc, x, y, psText, iLength) x, y: 字符串在客户区中的开始位置, 默认的设备环境中, 坐标原点是客户区的左上角; iLength: 字符串的长度(单位是字符), windows不认为0是字符串的结尾, 他直接靠着iLength确定字符串的长度; hdc设备环境句柄决定着文本的颜色, 字体, 文本背景的颜色, 函数的参数x和y如何映射到窗口的客户区, 同时设备环境还定义了一个裁剪区域(整个客户区(GetDC函数)/无效区域(BeginPaint函数));
+
+		// 4.2.1 设备环境
+
+9. 设备环境(简称DC): GDI内部维护的一个数据结构;
+
+		// 4.2.2 获取设备环境句柄: 方法一 BeginPaint() EndPaint();
+		// 4.2.3 绘制信息结构
+
+10. typedef  struct tagPAINTSTRUCT
+	{
+		HDC hdc;  // 设备环境句柄, 这里的句柄就是BeginPaint函数返回的句柄;
+		BOOL fErase;  // 使无效矩形有效的时候是否擦除了背景, 如果Invalidate函数使客户区无效, 在最后一个参数中使用FALSE指定不要擦除背景, 那么BeginPaint之后fErase是TRUE;
+		RECT rcPaint;  // 使用的是逻辑像素坐标 这里是一个裁剪(Clipping)矩形, 这意味着windows将把绘制限制在这个矩形里的无效区域中;
+		BOOL fRestore;
+		BOOL fIncUpdate;
+		BYTE rgbReserved[32];
+	} PAINTSTRUCT;
+
+		// 4.2.4 获取设备环境句柄: 方法二 GetDC(), ReleaseDC();
+
+11. GetDC与BeginPaint函数的不同:
+	11.1 返回的设备环境句柄中的裁剪区域是整个客户区(这样没有无效区域也没有关系, 可以照样绘制);
+	11.2 GetDC不会使无效区域有效化(但是可以调用ValidateRect(hwnd, NULL));
+	11.3 这样不用刻意生成WM_PAINT使一部分客户区无效化, 使得绘制更加及时方便(比如处理键盘输入的时候);
+
+		// 4.2.5 TEXTOUT函数详解
+		// 4.2.6 系统字体
+
+12. 点阵字体: 每个字符由像素点构成;
+
+		// 4.2.7 字符大小
+
+13. GetSystemMetrics函数获取用户界面尺寸, GetTextMetrics函数需要一个设备环境句柄, 因为他需要知道设备环境中选定的字体信息, 然后将该信息复制到TEXTMETRIC结构中;
+
+		// 4.2.8 文本尺寸的度量
+
+14. 大写字符的加权平均宽度是小写的1.5倍;
+
+		// 4.2.9 文本的格式化
+
+15. windows程序运行的时候, 系统字体不会变化, 因此, 应用程序只需要调用一次GetTextMetrics函数, 最好的时机是WM_CREATE消息时;
+16. static int cxChar, cyChar;  c代表count, 这里代表像素数;
+
+		// 4.2.10 综合使用
+		// 4.2.11 SYSMETS1.C窗口过程
+		// 4.2.12 空间不够
+		// 4.2.13 客户区的尺寸
+
+17. cxClient / cxChar  这里cxChar必须是非0值, 由于cxChar是在窗口初始化的时候设置的(WM_CREATE), 所以肯定在WM_SIZE之前就有非零值了;
+
+	// 4.3 滚动条
+		// 4.3.1 滚动条的范围和位置 
+
+18. SetScrollRange(hwnd, iBar, iMin, iMax, bRedraw);  // 默认的滚动条的范围是0 - 100;  iBar: SB_VERT, SB_HORZ;  bRedraw: 是否根据新的范围重绘滚动条(如果在调用SetScrollRange函数之后还要调用其他函数调整滚动条的显示, 最好设置成FALSE以避免过多的重绘);
+19. SetScrollPos(hwnd, iBar, iPos, bRedraw);  // iPos必须在iMin和iMax之间
+20. GetScrollRange() GetScrollPos() 获取滚动条的当前范围和位置;
+		
+		// 4.3.2 滚动条消息
+
+#21. WM_VSCROLL和WM_HSCROLL:
+	21.1 lParam: 当滚动条是窗口的一部分时, 可以忽略lParam参数, 它只用于滚动条是子窗口时, 通常是在对话框中;
+	21.2 wParam: 
+		21.2.1 低位字: 鼠标在滚动条上的动作; 
+		21.2.2 高位字: 
+			21.2.2.1 : 当低位字是SB_THUMBTRACK时, 高位字是用户拖动滑块的当前位置;
+			21.2.2.2 : 当低位字是SB_THUMBPOSITION时, 高位字是用户松开鼠标时滑块的最终位置;
+			21.2.2.3 : 对于其他的鼠标动作, wParam的高位字应被忽略;
+
+		// 4.3.3 加入滚动条的SYSMETS
+		// 4.3.4 程序的绘制代码结构
+	// 4.4 效果更好的滚动
+		// 4.4.1 滚动条函数  SetScrollInfo函数和GetScrollInfo函数
+
+22. 滚动条信息结构中的fMask == SIF_TRACKPOS时, 在处理SB_THUMBTRACK或SB_THUMBPOSITION消息时SCROLLINFO结构的nTrackPos字段将返回当前滑块的位置(该值为一个32位整数);
+
+		// 4.4.2 最远可以卷动到哪里?  SetScrollRangeInfo自动计算, 以避免过多的显示空白
+		// 4.4.3 新的SYSMETS
+
+#23. ScrollWindow(hwnd, cx, cy, NULL, NULL);  // cx: 水平滚动多少个像素  cy: 垂直滚动多少个像素  NULL, NULL表示需要滚动整个客户区;  这个函数实现的是滚动窗口客户区的内容而不是重绘; windows自动将新滚动出现的地方无效化, 从而产生一条WM_PAINT消息(而不需要调用InvalidateRect()函数);他不是GDI函数, 因为他不用设备环境作为参数;
+
+		// 4.4.4 可我不想用鼠标

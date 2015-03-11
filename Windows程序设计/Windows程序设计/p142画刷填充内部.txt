@@ -1,0 +1,12 @@
+. 画刷是一个8x8像素的很小的位图;
+
+. 抖动显示技术: 它实际上是使用画刷来显示颜色的, 在单色系统中, windows通过将64位设置成不同的值实现64种灰色色调, 对于16色或者256色的视频系统, 画刷也是由抖动实现的.
+
+. 有五个函数建立逻辑画刷:
+	1. hBrush = CreateSolidBrush(crColor);  // 这里的Solid并不能说明画刷为纯色, windows可能会建立一个抖动的位图;
+	2. hBrush = CreateHatchBrush(iHatchStyle, crColor);  // 阴影标记画刷
+	3. hBrush = CreatePatternBrush()
+	4. CreateDIBPatternBrushPt()
+	5. hBrush = CreateBrushIndirect(&logbrush);  // 这个函数包含以上其他四个函数的所有功能    logbrush是一个LOGBRUSH("逻辑画刷")结构, 这个结构有三个字段
+
+. 选入: SelectObject(hdc, hBrush)    删除: DeleteObject(hBrush)    获取: GetObject(hBrush, sizeof(LOGBRUSH), (LPVOID)&logbrush)

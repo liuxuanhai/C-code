@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Build: 2014-10-25 17:38:04  内部DTD的学习 -->
+<!DOCTYPE myfile[
+<!ELEMENT myfile (title,author)>	
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+]>
+<myfile>
+	<title>XML基础教程</title>
+	<author>张三</author>
+</myfile>

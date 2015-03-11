@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<PRODUCTDATA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="P076XML模式属性组之sequence.xsd">
+  <PRODUCT>
+    <PRODUCTNAME>飞机模型</PRODUCTNAME>
+    <DESCRIPTION>外贸出口产品</DESCRIPTION>
+    <PRICE>15</PRICE>
+    <QUANTITY>9</QUANTITY> 
+  </PRODUCT>
+</PRODUCTDATA>

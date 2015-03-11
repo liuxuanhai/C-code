@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-10-26 18:07:18 IDREF: 引用已经定义的属性值 -->
+<!DOCTYPE 家庭[
+  <!ELEMENT 家庭 (人+)>
+  <!ELEMENT 人 EMPTY>
+  <!ATTLIST 人
+    relID ID #REQUIRED
+    parentID IDREFS #IMPLIED
+    name CDATA #REQUIRED
+  >   <!-- 属性特点#IMPLIED为可有可无, 没有默认 -->
+]>
+
+<家庭>
+  <人 relID="P_1" name="爸爸"/>
+  <人 relID="P_2" name="妈妈"/>
+  <人 relID="P_3" parentID="P_1 P_2" name="儿子"/>
+</家庭>

@@ -1,0 +1,10 @@
+			创建: 2014-08-23 12:23:53
+
+			小讨论: 
+				1. less<int> negate<int>()	这里前一个是用结构定义的仿函数(不使用"()"), 后一个是用类定义的仿函数(用"()")
+
+1.	less<>	缺省排序规则仿函数	set<int, less<int>() > coll;
+2.	greater<>	将排序规则改成 elem > elem > elem
+3.	negate<>()	将元素设置为相反值 transform(coll.begin(), coll.end(), coll.begin(), negate<int>())
+4.	multiplies<>()	求乘积	如: 对一个群集求平方 transform(coll.begin(), coll.end(), coll.begin(), coll.begin(), multiplies<int>())
+5.	mem_fun_ref()	调用他所作用的元素的某个成员函数 for_each(coll.begin(), coll.end(), mem_fun_ref(&Person::save)) 这些元素必须是Person或Person的派生类

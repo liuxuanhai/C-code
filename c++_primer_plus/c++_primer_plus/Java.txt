@@ -1,0 +1,4 @@
+1.	web.xml		针对整个网站的配置
+2.	struts.xml	针对struts的Action操作的配置
+3.	applicationContext.xml	对spring的配置
+4.	hibernate.xml	对数据库访问的配置

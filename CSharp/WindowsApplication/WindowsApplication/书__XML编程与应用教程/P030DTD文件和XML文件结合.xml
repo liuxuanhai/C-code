@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- <? 里面包含处理指令 ?> -->
+<!-- Build: 2014-10-25 16:09:52 -->
+<!DOCTYPE productdata SYSTEM "P030DTD文件和XML文件结合.dtd">
+	<!-- DTD声明必须位于XML声明之后, 任何文档元素前, 两个声明之间可有注释 -->
+	<!-- DOCTYPE关键字 + productdata是文档的根元素 + 可选的外部标识符(外部标识符(外部子集)的命名和定位) + 可选的标记声明块(标记声明(内部子集)构成)-->
+
+<productdata>
+	<product productid="P001" CATEGORY="TOYS">
+		<productname>乱世佳人</productname>
+		<description>以美国内战为背景进行叙事</description>
+		<price>25.00</price>
+		<quantity>35</quantity>
+	</product>
+</productdata>

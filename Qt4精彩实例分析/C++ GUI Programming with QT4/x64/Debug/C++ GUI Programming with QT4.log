@@ -1,0 +1,26 @@
+﻿生成启动时间为 2014/8/12 10:20:06。
+     1>项目“C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\C++ GUI Programming with QT4\C++ GUI Programming with QT4.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         G:\微软\VS2012\VC\bin\x86_amd64\CL.exe /c /I.\GeneratedFiles /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\\include /I.\GeneratedFiles\Debug /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\\include\QtCore /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\\include\QtGui /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\\include\QtWidgets /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\include /IC:\Qt\Qt5.2.0\5.2.0\msvc2012_64\include\QtANGLE /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc110.pdb" /Gd /TP /errorReport:prompt mainwindow.cpp
+         mainwindow.cpp
+       Link:
+         G:\微软\VS2012\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\x64\Debug\\C++ GUI Programming with QT4.exe" /NOLOGO /LIBPATH:C:\Qt\Qt5.2.0\5.2.0\msvc2012_64\\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\x64\Debug\C++ GUI Programming with QT4.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\x64\Debug\C++ GUI Programming with QT4.lib" /MACHINE:X64 x64\Debug\cell.obj
+         x64\Debug\finddialog.obj
+         x64\Debug\gotocelldialog.obj
+         x64\Debug\main.obj
+         x64\Debug\mainwindow.obj
+         x64\Debug\sortdialog.obj
+         x64\Debug\spreadsheet.obj
+         x64\Debug\moc_finddialog.obj
+         x64\Debug\moc_gotocelldialog.obj
+         x64\Debug\moc_mainwindow.obj
+         "x64\Debug\moc_P258 Mutex.obj"
+         x64\Debug\moc_sortdialog.obj
+         x64\Debug\moc_spreadsheet.obj
+         "x64\Debug\P259 线程同步.obj"
+         C++ GUI Programming with QT4.vcxproj -> C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\x64\Debug\C++ GUI Programming with QT4.exe
+     1>已完成生成项目“C:\Users\daxiong\desktop\VS2012\Code\C++ GUI Programming with QT4\C++ GUI Programming with QT4\C++ GUI Programming with QT4.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:08.25

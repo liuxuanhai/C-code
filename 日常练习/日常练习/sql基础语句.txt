@@ -1,0 +1,93 @@
+Mysql基础语句
+1.查看用户创建的数据库：
+show databases;
+2.创建数据库：
+create database 数据库名;
+3. 打开数据库
+use 数据库名;
+4.创建表
+create table 表名
+( <列名> <数据类型> <列级完整性约束>，
+<列名> <数据类型> <列级完整性约束>，
+<列名> <数据类型> <列级完整性约束>	
+);
+5.查看数据库中的表
+show tables;
+6.查看表的结构
+desc 表名;
+7.增加列
+alter table 表名 add <列名> <数据类型> <列级完整性约束>;  
+8.删除列
+alter table <表名> drop <列名称>;
+9.修改列的类型信息
+alter table <表名> change <列名> <新列名> <数据类型> <列级完整性约束>;
+10.插入信息
+insert into <表名> values (value1,value2);
+insert into <表名> （<列名>） values (value1,value2);
+11.删除信息
+delete from <表名> where <范围>;
+12. 查询信息
+select * from <表名>;
+13.更新信息
+update <表名> set <列名=”value”>where <范围  列名=“之前的”>;
+14.模糊查询
+select * from <表名> where <列名> like ‘%value1%’ or <列名> like ‘%value1%’;
+15.插入sql文件 \. d:\wenjian\ds.sql;
+SQL数据类型与JAVA数据类型的对应
+SQL  Data  Type     	JAVA  Data  Type
+Char	String
+Varchar	String
+Int	Int
+Float	Double
+Double	Double
+Date	java.sql.Date
+Time	java.sql.Time
+Timestamp	java.sql.Timestamp
+列的约束条件：Primary key,  Unique,  
+Not null, Foreign key , default  value，auto_increment;
+foreign key 外键
+注意：auto_increment 自动递增 只有int类型才有这个限制条件。
+Person表
+例1：建立一个基本信息表Person,它由学号Sno、姓名Sname、性别Ssex、年龄Sage四个属性组成。其中学号为主码并且姓名取值唯一。 
+
+学  号
+Sno	姓  名
+Sname	性  别
+ Ssex	年  龄
+ Sage
+200215121
+200215122
+200215123
+200515125	李勇
+刘晨
+王敏
+张立	男
+女
+女
+男	20
+19
+18
+19
+create table Person
+( Sno int Primary Key not null auto_increment,
+Sname char(20) unique ,
+Ssex char(1) ,
+Sage int 
+）;
+查看表的结构：
+desc Person;
+增加信息：
+insert into Person values(null,’李勇’，‘男’，20)；
+查看表中信息：
+select * from Person;
+insert into person (Sname,Ssex,Sage) values（ ‘王晨’，‘女’，18）;
+insert into person values(201,’王敏’，’女’，19);
+insert into person (Sname,Ssex,Sage) values (‘张立’，’男’，19);
+模糊查询：
+select * from Person where Sname like ‘%王%’;
+
+删除信息：
+Delete from Person where Sno=202;
+更新信息：
+update Person set Sage=22 where Sno=2;
+Insert into

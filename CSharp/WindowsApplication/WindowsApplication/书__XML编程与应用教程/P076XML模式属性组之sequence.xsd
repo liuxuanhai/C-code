@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- Build: 2014-10-27 13:43:53 -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="PRODUCTDATA" type="prdata"/>
+  <xs:complexType name="prdata">
+    <xs:sequence>
+      <xs:element name="PRODUCT" type="prdt"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="prdt">
+    <xs:sequence> <!-- 按指定顺序(如果可选, 也可以不显示) -->
+      <xs:element name="PRODUCTNAME" type="xs:string"/>
+      <xs:element name="DESCRIPTION" type="xs:string"/>
+      <xs:element name="PRICE" type="xs:positiveInteger"/>
+      <xs:element name="QUANTITY" type="xs:nonNegativeInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

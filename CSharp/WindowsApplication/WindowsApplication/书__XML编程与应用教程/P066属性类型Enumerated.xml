@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-10-26 18:15:22 Enumerated(中文为枚举)取值来自一个范围() -->
+<!DOCTYPE 家庭[
+  <!ELEMENT 家庭 (人+, 家电*)>
+  <!ELEMENT 人 EMPTY>
+  <!ELEMENT 家电 EMPTY>
+
+  <!ATTLIST 人
+    名字 CDATA #REQUIRED
+    性别 (男|女) #REQUIRED
+    年龄 CDATA #REQUIRED
+    爱好 CDATA #IMPLIED
+  >
+
+  <!ATTLIST 家电
+    名称 CDATA #REQUIRED
+    数量 CDATA #REQUIRED
+    说明 CDATA #IMPLIED
+  >
+]>
+
+<家庭>
+  <人 名字="何士雄" 性别="男" 年龄="21"/>
+  <人 名字="李寻欢" 性别="男" 年龄="22" 爱好="打篮球"/>
+  <家电 名称="彩电" 数量="3"/>
+</家庭>

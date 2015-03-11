@@ -1,0 +1,12 @@
+1.	事件和信号的区别:
+	1.	实现窗口部件时, 事件十分有用
+	2.	使用窗口部件时, 信号十分有用
+		eg:	使用QPushButton时, 我们对他的clicked()信号更为关注, 但是促成信号发射的底层是鼠标或者键盘事件, 但是如果实现的是一个类似于QPushButton的类, 就需要编写一定的处理鼠标和键盘的事件的代码, 而且在必要的时候, 还需要发射clicked()信号
+2.	重新实现事件处理器
+	1.	事件是QEvent子类的一个实例
+	2.	事件类型有一百 多种, 每一种都可以通过一个枚举值来进行识别, 如: QEvent::type()可以用于返回用于处理鼠标事件的QEvent::MouseButtonPress
+	3.	通过继承QObject, 事件通过他们的event()函数通知对象, 在QWidget中的event()实现把绝大多数常用类型的事件提前传递给特定的事件处理器, 比如mousePressEvent()...
+	4.	用于表明释放重要性的Ctrl, Shift, Alt等修饰键可以使用QKeyEvent::modifiers()检测出来
+3.	实现键绑定的两种方法, 比如按下的键是Tab, 一般为焦点转换, 现在把它改成缩进:
+	1.	重写基类的QWidget::event()
+	2.	使用QAction

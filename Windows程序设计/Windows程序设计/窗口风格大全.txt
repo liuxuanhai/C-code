@@ -1,0 +1,75 @@
+窗口风格常量： 
+
+WS_BODER 窗口具有细线边框 
+
+WS_CAPTION 窗口具有标题栏（包含 WS_BODER) 
+
+WS_CHILD 创建一个子窗口（此风格不能与 WS_POPUP 一起使用 ) 
+
+WS_CHILDWINDOW 与 WS_CHILD 相同 
+
+WS_CLIPHILDREN 当在父窗口中画图时，绕开子窗口占有的区域。 
+
+WS_CLIPSBLINGS 裁剪相互关联的子窗口，使一个特殊 的子窗口收到 WS_PAINT 消息时，仅对自身窗口起作用。此式样仅适合具有 WS_CHILD 风格的窗口。 
+
+WS_DISABLED 创建一个开始时禁止的窗口 
+
+WS_DLGFRAME 创建一个具有某种式样的边框的窗口，该式样一般与对话框一起使用，具有该式样的窗口不能有一个标题栏。 
+
+WS_GROUP 指定一组控制中的第一个控制，具有该式样控制的下一个控制终止当前控制组，并且开始下一个控制组。 
+
+WS_HSCROLL 窗口具有水平滚动条 
+
+WS_VSCROOL 窗口具有垂直滚动条 
+
+WS_MAXIMIZE 窗口初始时最大化 
+
+WS_MINIMIZE 窗口初始时最小化 
+
+WS_MINIMIZEBOX 窗口具有最小化按钮 
+
+WS_MAXIMIZEBOX 窗口具有最大化按钮 
+
+WS_OVERLAPPED 重叠 式窗口，该式样窗口 带有一个标题栏和边框 
+
+WS_OVERLAPPEDWINDOW 具有WS_OVERLAPPED,WS_CAPTION,WS_SYSMENU,WS_THICKFRAM, WS_MINIMIZEBOX,WS_MAXIMIZEBOX 式样的重叠式窗口 
+
+WS_POPUP			弹出式窗口，不能与 WS_CHILD 一起使用 
+
+WS_POPUPWINDOW		具有 WS_BODER,WS_POPUP,WS_SYSMENU 式样的弹出式窗口。为了使 SYSTEM 菜单（也叫 CONTROL 菜单可见），必须将 WS_CAPTION与 WS_POPUPWINDOW 式样组合使用。 
+
+WS_SYSMENU			具有 SYSTEM 菜单栏，还必须指定 WS_CAPTION 式样 
+
+WS_THICKFRAME		具有可调边框 
+
+WS_VISIBLE 窗口初始时可见 
+
+
+
+扩展窗口风格常量 
+
+
+
+WS_EX_ACCEPTFILES 窗口可接收拖放文件 
+
+WS_EX_DLGMODALFRAME 具有双线边框 
+
+WS_EX_NOPARENTNOTIFY 当一个子窗口创建或取消时，不向其父窗口发送WM_PARENTNOTIFY 消息 
+
+
+
+WS_EX_TOPMOST 窗口放在所有非顶层窗口之上，即使窗口 不工作。 
+
+
+
+
+
+支持 3D 外观的扩展风格 
+
+
+
+WS_EX_CLIENTEDGE 为应用程序的主工作空间创建一个下陷的客户区，例如一个字处理程序的文本窗口 
+
+
+
+WS_EX_STATICEDGE 为只用于输出的窗口创建下陷的客户区。

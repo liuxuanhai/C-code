@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D0BFC696-4609-4307-8D86-ABFB2F585AF7}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AlgorithmsinC</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="1.4快速查找.cpp" />
+    <ClCompile Include="1.5快速合并.cpp" />
+    <ClCompile Include="1.6加权快速合并.cpp" />
+    <ClCompile Include="3.11数组折半对齐.cpp" />
+    <ClCompile Include="3.18随机1000以内的重复值.cpp" />
+    <ClCompile Include="p008连通性问题的快速查找解决方案.cpp" />
+    <ClCompile Include="p011连通性问题的快速合并解决方案.cpp" />
+    <ClCompile Include="p013连通性问题的加权快速合并解决方案.cpp" />
+    <ClCompile Include="p016连通性问题的对分路径压缩解决方案.cpp" />
+    <ClCompile Include="p051lg函数.cpp" />
+    <ClCompile Include="p052平均值和方差.cpp" />
+    <ClCompile Include="p058数组 找素数 埃拉托色尼筛法.cpp" />
+    <ClCompile Include="p061数组 动态内存分配 伯努利实验.cpp" />
+    <ClCompile Include="p062数组 数组结构的使用 最近点计算.cpp" />
+    <ClCompile Include="p067 链表 约瑟夫问题.cpp" />
+    <ClCompile Include="p067链表 约瑟夫问题.cpp" />
+    <ClCompile Include="p072 链表插入排序.cpp" />
+    <ClCompile Include="p072链表插入排序.cpp" />
+    <ClCompile Include="p075 约瑟夫问题的链表分配 实现文件.cpp" />
+    <ClCompile Include="p075 约瑟夫问题的链表分配 客户文件.cpp" />
+    <ClCompile Include="p075约瑟夫问题的链表分配 实现文件.cpp" />
+    <ClCompile Include="p075约瑟夫问题的链表分配 客户文件.cpp" />
+    <ClCompile Include="p084矩阵相乘.cpp" />
+    <ClCompile Include="p085二维数组的动态内存分配.cpp" />
+    <ClCompile Include="p085字符串排序.cpp" />
+    <ClCompile Include="p089图的邻接矩阵表示法.cpp" />
+    <ClCompile Include="p090图的邻接表表示法.cpp" />
+    <ClCompile Include="p091表的二维数组.cpp" />
+    <ClCompile Include="p131链表.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="p075 约瑟夫问题的链表分配.h" />
+    <ClInclude Include="p075约瑟夫问题的链表分配.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

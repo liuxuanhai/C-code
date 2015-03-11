@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="www.HeabKing.com">  <!-- 要包含和已包含的模式文件都必须是同一个目标命名空间 -->
+          <!-- 使用targetNamespace声明目标命名空间 -->
+  <!-- Build: 2014-11-3 10:39:47 -->
+  <simpleType name="bid">
+    <restriction base="string">
+      <pattern value="[A]\d{4}"/>
+    </restriction>
+  </simpleType>
+</schema>

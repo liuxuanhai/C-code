@@ -1,0 +1,307 @@
+// 5. 绘图基础
+	// 5.1  GDI的结构
+		// 5.1.1 GDI原理
+
+1. 图形输出设备:
+	1.1 光栅设备: 将图像表示成以点的形式构成的矩阵(视频显示适配器, 点阵打印机, 激光打印机);
+	1.2 矢量设备: 使用线条来绘制图像(绘图机);
+2. windows默认使用以像素为单位的坐标系统;
+3. GDI的一个主要目的就是支持与设备无关的图形;
+
+		// 5.1.2 GDI函数调用
+
+4. GDI函数分类:
+	4.1 获取(或建立)和释放(或销毁)设备环境的函数; 比如: BeginPaint函数和EndPaint函数, GetDC函数和ReleaseDC函数;
+	4.2 获取设备环境信息的函数; 比如: GetTextMetrics函数;
+	4.3 绘图函数; 比如: TextOut函数;
+	4.4 设置和获取设备环境属性的函数, 所有的以Set开头的函数, 都有相应的一个以Get开头的函数用于获取当前设备环境的属性; 比如: SetTextAlign函数;
+	4.5 使用GDI"对象"的函数;  如: CreatePen创建一个"逻辑画笔", 然后被GDI函数使用;
+
+		// 5.1.3 GDI的基本图形
+
+5. 图形类型的分类(基本图形):
+	5.1 线条和曲线;
+	5.2 可被填充的封闭区域;
+	5.3 位图: 位图是一个二维的位数组, 每一个元素都对应显示设备上的一个像素, 位图是光栅图形的基础;
+		5.3.1 旧式的"设备相关"位图;
+		5.3.2 新式的"设备无关"位图DIB;
+	5.4 文本;
+	
+		// 5.1.4 其他
+		
+6. GDI的其他方面:
+	6.1 映射模式和转换(mapping mode and transform): 将像素单位转换成其他(英寸, 几分之一英寸, 毫米...); 
+	6.2 图元文件(metafile): 一个图元文件是以二进制形式存储的GDI命令的集合;
+	6.3 区域(region): 区域是一个任意形状的封闭图形, 通常可以表示为由一系列简单区域进行布尔运算后得到的结果;
+	6.4 路径(path): 路径是存储在GDI内部的直线和曲线的集合, 可用于绘制, 填充和剪裁, 路径还可以转换为区域;
+	6.5 剪裁(clipping): 当绘图被限制在一个特定的空间位置时, 就发生了剪裁;
+	6.6 调色板(palettes);
+	6.7 打印(printing);
+
+	// 5.2 设备环境
+
+7. 如果希望在图形输出设备(比如屏幕或打印机)上绘制图形, 必须首先获取设备环境(即DC)的句柄; 当windows把这个句柄交给你的程序,windows同时也就给予你使用这个设备的权限; 接着, 在GDI函数中将这个句柄作为一个参数, 告诉windows在哪个设备上进行绘图;
+8. 设备环境包含许多GDI函数如何工作的属性;
+
+		// 5.2.1 获取设备环境句柄
+
+9. 获取设备环境句柄的方法:
+	9.1 与特定窗口相关联的设备环境:
+		9.1.1 BeginPaint和EndPaint: 这样获取的设备环境句柄会将绘图限制在rcPaint的无效区域内;
+		9.1.2 GetDC和ReleaseDC: 这样获取的设备环境句柄会将绘图限制在整个客户区(NULL使得绘图为整个屏幕), 并且这两个函数不会使无效区变得有效;
+	9.2 通用的获取设备环境句柄的函数:
+		9.2.1 hdc = CreateDC(TEXT("DISPLAY"), NULL, NULL, NULL); 获取当前整个屏幕的设备环境句柄;
+	9.3 只获取设备环境信息, 不进行绘图:
+		9.3.1 CreateIC获取一个"信息上下文(Information  Context)"句柄;
+	9.4 处理位图的获取内存设备环境句柄:
+		9.4.1 hdcMem = CreateCompatibleDC(hdc); DeleteDC(hdcMem);
+	9.5 图元文件的设备环境句柄:
+		9.5.1 hdcMeta = CreateMetaFile(pszFilename); hmf = CloseMetaFile(hdcMeta);
+
+		// 5.2.2 获取设备环境信息
+
+10. GetDeviceCaps函数(意思为获取设备的能力);
+
+		// 5.2.3 DEVCAPS1程序
+		// 5.2.4 设备的尺寸
+
+11. 像素尺寸(像素规模): 设备在水平和垂直方向上显示的总的像素数;
+	度量尺寸(度量规模): 以英寸或者毫米为单位的设备的客户区域的大小;
+	分辨率 = 像素尺寸 / 度量尺寸(可以将分辨率理解为每英寸中的像素数目);
+12. 正方形像素: 设备的水平分辨率等于垂直分辨率;
+13. point size: 点值也可理解为磅值, 即字号, 一磅约为1/72英寸;
+14. 逻辑像素: 以每英寸的像素数计算的非实际分辨率; GetDeviceCaps(LOGPIXELSX | LOGPIXELSY);
+15. 逻辑宽度: 以毫米为单位的物理屏幕宽度; GetDeviceCaps(HORZSIZE);
+	逻辑高度: 以毫米为单位的物理屏幕高度; GetDeviceCaps(VERTSIZE);
+
+		// 5.2.5 色彩ABC
+
+16. 抖动: 用不同色彩的相邻像素形成一个小的图案;
+
+		// 5.2.6 设备环境属性
+
+17. windows在设备环境中存储着一些"属性", 这些属性控制着GDI函数在显示器上的操作方式;
+
+		// 5.2.7 保存设备环境
+
+18. 要想在释放设备环境时保存对属性做的改变, 应该在注册窗口类时将CS_OWNDC标志作为窗口样式的一部分; wndclass.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC; 这样, 每个基于这个窗口类创建的窗口都有它的私有的设备环境, 当窗口被销毁时, 这个设备环境依旧存在(只影响GetDC和BeginPaint函数获得的设备环境);
+19. idSaved = SaveDC(hdc); RestoreDC(hdc, idSaved);  保存和还原设备环境; RestoreDC(hdc, -1); 会使设备环境恢复到最近一次由SaveDC函数保存的状态;
+
+	// 5.3 点和线的绘制
+		// 5.3.1 设定像素
+
+20. SetPixel(hdc, x, y, crColor); 将坐标为x和y的像素点设定为某个特定的颜色; crColor是COLORREF类型;
+21. crColor = GetPixel(hdc, x, y); 返回指定坐标位置的像素颜色;
+
+		// 5.3.2 直线
+
+22. windows可以绘制直线, 椭圆弧线(椭圆圆周上的曲线)和贝塞尔样条曲线, 支持的画线函数为:
+	22.1 LineTo(hdc, x, y), 画直线; 
+		22.1.1 从当前位置(但不包括当前位置), 画到LineTo函数中传入的点; 
+	22.2 Polyline(hdc, PointArray, ArrayNumber) 和 PolylineTo, 画一条由多条首尾相连的直线构成的折线;
+		22.2.1 Polyline函数并不使用和改变当前位置;
+		22.2.2 PolylineTo函数使用当前位置作为起点, 画完线后, 在返回前会将 当前位置设置为最后一根线的终点;
+	22.3 PolyPolyline, 画多条折线;
+	22.4 Arc(hdc, xLeft, yTop, xRight, yBottom, xStart, yStart, xEnd, yEnd), 画椭圆弧线;
+	22.5 PolyBezier(hdc, apt, iCount) 和 PolyBezierTo(hdc, apt, iCount), 画贝塞尔样条曲线; apt是一个POINT数组, 前四个点按顺序表示为起点, 第一个控点, 第二个控点和终点, 随后的每一条贝塞尔样条曲线只需给出三个点, 对于PolyBezierTo函数把当前位置作为第一个起点, 所以所有的样条曲线都只需给出三个点;
+	22.6 AcrTo 和 AngleArc, 画椭圆弧线;
+	22.7 PolyDraw, 画多条贝塞尔样条曲线或者一条由多条收尾相连直线构成的折线;
+
+	注意: 以下函数即完成画线也会使用当前填充区域的画刷填充所画图形封闭区域:
+
+	22.8 Rectangle(hdc, xLeft, yTop, xRight, yBottom), 画矩形; (xLeft, yRight)矩形左上角的坐标, (xRight, yBottom)矩形右下角的坐标;
+	22.9 Ellipse(hdc, xLeft, yTop, xRight, yBottom), 画椭圆;
+	22.10 RoundRect(hdc, xLeft, yTop, xRight, yBottom, xCornerEllipse, yCornerEllipse), 画圆角矩形;
+	22.11 Pie(hdc, xLeft, yTop, xRight, yBottom, xStart, yStart, xEnd, yEnd), 画椭圆的一部分, 使其看起来像一个扇形;
+	22.12 Chord(hdc, xLeft, yTop, xRight, yBottom, xStart, yStart, xEnd, yEnd), 画出由弦分割出的部分椭圆, 形状呈弓形;
+	// 以下两个函数有多边形填充模式: 
+	22.13 Polygon(hdc, apt, iCount);  // 如果最后一个点与第一个点不同, 则windows会加一条线连接最后一个点与第一个点;
+	22.14 PolyPolygon(hdc, apt, aiCounts, iPolyCount);  绘制多个多边形, aiCounts多边形顶点的个数, iPolyCount是绘制的多边形的个数;
+		ps: 多边形填充模式:	
+			ps.1 默认是ALTERNATE(交替): (五角星空心实角) 从封闭区域的中心向无穷远处画一条射线, 只有该射线穿过奇数条边框线时, 封闭区域才会被填充;
+			ps.2 WINDING(螺旋): (五角星实心实角) 从区域内的一个点画一个伸向无穷远的射线, 如果射线穿过奇数条边框线, 则区域被填充, 这和ALTERNATE模式相同. 如果射线穿过偶数条边框线, 还要考虑边框线的绘制方向: 在被穿越的偶数条边框线中, 不同方向的边框线(相对于射线的方向)的数目如果相等, 则区域不会被填充, 不同方向的边框线(相对于射线方向)的数目如果不相等, 则区域会被填充;
+
+23. 影响绘制线条外观的五个设备环境属性:
+	23.1 当前画笔位置(仅适用于LineTo, PolylineTo, PolyBezierTo, ArcTo函数);
+	23.2 画笔: 
+		23.2.1 决定了线条的颜色, 宽度和样式(实线/点线/虚线); 
+		23.2.2 默认的是实心1像素黑色线条BLACK_PEN;
+		23.2.3 windows提供三种"备用画笔(stock pen)": BLACK_PEN, NULL_PEN, WHITE_PEN;
+	23.3 背景模式;
+		23.3.1 默认是OPAQUE不透明, 使用背景颜色来填充空隙;
+		23.3.2 设置背景模式:
+			SetBkMode(hdc, TRANSPARENT);
+	23.4 背景颜色;
+		23.4.1 默认是白色;
+		23.4.2 改变填充空隙背景颜色:
+			SetBkColor(hdc, crColor);
+	23.5 绘图模式;
+		23.5.1 默认使用R2_COPYPEN(画笔颜色代替目标颜色)模式;  R2_NOTCOPYPEN: 画笔黑色则绘制白色, 画笔白色则绘制黑色; R2_BLACK: 不管画笔或背景颜色, 总是绘制黑色; R2_WHITE: 不管背景和画笔颜色, 总是绘制白色; R2_NOP: 不操作, 让目标颜色保持不变; R2_NOT: 将目标颜色取反来绘制, 不管画笔的颜色;
+		23.5.2 设置绘图模式: SetROP2(hdc, iDrawMode);  // p136列出了十六种ROP2绘图模式(img);
+24. 画一条直线:
+	MoveToEx(hdc, xBeg, yBeg, NULL);  // 指定直线的起点; 设置设备环境的"当前位置(默认为(0, 0))"属性; 最后一个参数是一个POINT结构的指针, 从MoveToEx函数返回后, POINT结构的x和y字段表示运行该函数之前的当前位置;
+	LineTo(hdc, xEnd, yEnd);  // 指定直线的终点; 指定终点的同时, 在当前位置和终点之间绘制一条直线;
+25. GetCurrentPositionEx(hdc, &pt);  // 获取当前位置;
+
+		// 5.3.3 边框绘制函数  基于一个矩形"边框"来绘图;
+
+26. 边界偏差(off-by-one): 一些图形程序系统画出的图形包含了右坐标和底坐标表示的点, 一些则只画到右坐标和底坐标表示的点之前的一点; windows使用后一种方法;
+
+		// 5.3.4 贝塞尔样条曲线
+
+27. 样条曲线(spline, 又称作曲尺)最初指的是一块可以弯曲的物体;
+28. 对于鼠标消息, wParam是鼠标动作, lParam是鼠标位置;
+
+		// 5.3.5 使用现有画笔
+
+29. SelectObject返回一个先前选入设备环境的画笔的句柄;
+
+		// 5.3.6 创建, 选择和删除画笔
+
+30. 一个程序可以创建6种"GDI对象", 除了调色板, 其他对象都使用SelectObject函数选入设备环境:
+	30.1 画笔;
+		30.1.1 创建画笔:
+			30.1.1.1 创建一个画笔
+				hPen = CreatePen(iPenStyle, iWidth, crColor);  iPenStyle: 实线/虚线/点线;
+			30.1.1.2 创建多个画笔
+				建立一个类型为LOGPEN的结构, 调用CreatePenIndirect函数来建立一个画笔;
+				LOGPEN logpen; // lopnStyle(UINT): 画笔样式; lopnWidth(POINT): 画笔宽度(x字段设置, y忽略); lopnColor(COLORREF): 画笔颜色;
+				hPen = CreatePenIndirect(&logpen);  // CreatePen和CreatePenIndirect函数不需要设备环境句柄, 在调用SelectObject之前, 这些函数创建的逻辑画笔和设备环境没有任何联系; 可以为几种不同的设备, 例如屏幕和打印机使用相同的画笔;
+		30.1.2 获取当前设备环境中的画笔:
+			hPen = GetCurrentObject(hdc, OBJ_PEN);
+		31.1.3 删除画笔:
+			DeleteObject(SelectObject(hdc, hPen));
+	30.2 画刷;
+		30.2.1 默认画刷: WHITE_BRUSH;
+		30.2.2 获取6个备用画刷:  // WHITE_BRUSH, LTGRAY_BRUSH, GRAY_BRUSH, DKGRAY_BRUSH, BLACK_BRUSH和NULL_BRUSH(又称HOLLOW_BRUSH);
+			hBrush = GetStockObject(GRAY_BRUSH);
+		30.2.3 将画刷选入设备环境:
+			SelectObject(hdc, hBrush);
+		30.2.4 绘制不含边框的图形: SelectObject(hdc, GetStockObject(NULL_PEN));
+		30.2.5 不想填充图形内部: SelectObject(hdc, GetStockObject(NULL_BRUSH));
+		30.2.6 五个建立逻辑画刷的函数:
+			30.2.6.1 hBrush = CreateSolidBrush(crColor);  // 创建实心画刷
+			30.2.6.2 hBrush = CreateHatchBrush(iHatchStyle, crColor);  // 使用由水平, 垂直或者对角线组成的"阴影线标记(hatch mark)"来建立一个画刷;
+				阴影线之间的区域会使用设备环境中的背景颜色和背景模式来着色;
+			30.2.6.3 hBrush = CreatePatternBrush; hBrush = CreateDIBPatternBrushPt;建立自己的位图画刷;
+			30.2.6.4 hBrush = CreateBrushIndirect(&logbrush);  // 包含其他四个函数的所有功能; logbrush是一个LOGBRUSH类型的结构(p143逻辑画刷结构详解(img));
+		30.2.7 获取画刷信息 GetObject(hBrush, sizeof(LOGBRUSH), (LPVOID)&logbrush);
+	30.3 位图;
+	30.4 区域;
+	30.5 字体;
+	30.6 调色板;
+
+31. 画笔等GDI对象使用规则:
+	31.1 最终应该删除创建的GDI对象DeleteObject(hPen);
+	31.2 当GDI对象被选入一个有效的设备环境时, 不要删除它;
+	31.3 不要删除备用对象;
+
+		// 填充空隙
+
+32. 点式画笔和虚线画笔之间的空隙颜色由设备环境两个属性决定:
+	32.1 背景模式(透明/不透明):
+		32.1.1 默认是OPAQUE不透明, 使用背景颜色来填充空隙;
+		32.1.2 设置背景模式:
+			SetBkMode(hdc, TRANSPARENT);
+	32.2 背景颜色:
+		32.2.1 默认是白色;
+		32.2.2 改变填充空隙背景颜色:
+			SetBkColor(hdc, crColor);
+
+		// 5.3.8 绘图模式
+
+33. windows使用画笔进行绘制直线的时候, 实际上是在将画笔的像素颜色和目标显示表面的像素颜色按位进行布尔运算, 对像素颜色执行一个按位布尔运算称为"光栅操作(raster operator, ROP)"; 因为绘制一条直线只涉及两种像素颜色(画笔和目标), 这里的布尔运算就被称为"二元光栅操作(ROP2)";
+
+	// 5.4 绘制填充区域
+		// 5.4.1 Polygon函数和多边形填充模式
+		// 5.4.2 用画刷填充内部
+	// 5.5 GDI映射模式
+
+34. 将逻辑单位(logical unit)转换成设备单位(device unit)需要用到的设备环境属性:
+	34.1 映射模式(mapping mode): 定义了如何将GDI函数中指定的逻辑坐标映射到设备坐标; 映射模式被定义为从窗口(逻辑坐标)到视口(设备坐标)的映射;
+		34.1.1 决定了x轴和y轴的方向(p144八种映射模式详解(img));
+		34.1.2 设置映射模式: SetMapMode(hdc, iMapMode);
+		34.1.3 映射模式是设备环境的一种属性, 因此, 只有当使用以设备环境句柄作为参数的GDI函数时, 映射模式才会生效;
+	34.2 窗口原点(window origin);  !!ps. p146将逻辑点设成客户区中心.cpp 有关于窗口原点 视口原点 设备坐标 逻辑坐标的解释!!
+		34.2.1 改变窗口原点: 设备点(0, 0)始终位于客户区左上角;
+			SetWindowsOrgEx(hdc, -cxClient / 2, -cyClient / 2, NULL);  参数是逻辑单位 将逻辑原点设置为客户区中心;
+			将窗口原点改成(-cxClient/2, -cyClient/2), 逻辑点(-cxClient/2, -cyClient/2)将会被映射到设备点(0, 0);
+		35.2.2 获取窗口原点:
+			GetWindowsOrgEx(hdc, &pt);  以设备坐标的形式给出;
+	34.3 视口原点(viewport origin);
+		34.3.1 改变视口原点: 设备点(0, 0)始终位于客户区左上角;
+			SetViewportOrgEx(hdc, cxClient / 2, cyClient / 2, NULL);  参数是设备单位 将逻辑原点设置为客户区中心
+			将视口原点改成(cxClient/2, cyClient/2), 逻辑点(0, 0)将会被映射到设备点(cxClient/2, cyClient/2);
+		34.3.2 GetViewportOrgEx(hdc, &pt);  以逻辑坐标的形式给出;
+		34.3.3 SetViewportOrgEx(hdc, cxClient / 2, cyClient / 2, NULL);SetWindowsOrgEx(hdc, -cxClient / 2, -cyClient / 2, NULL);
+			上边两个式子的结果就是把逻辑原点设置成了客户区右下角;
+	34.4 窗口范围(window extents);
+	34.5 视口范围(viewport extents);
+
+		// 5.5.1 设备坐标和逻辑坐标
+		// 5.5.2 设备坐标系统
+
+35. 在所有的设备坐标系统中, 单位都是以像素的形式表示的, 水平方向上x值从左向右增加, 垂直方向上y值从上往下增加;
+36. 三种设备坐标系统:
+	36.1 屏幕坐标(screen coordinator): 屏幕左上角是(0, 0), 使用带DISPLAY参数的CreateDC函数来获取整个屏幕的设备环境;
+	36.2 全窗口坐标: 边框左上角是(0, 0), 使用GetWindowDC函数获取设备设备环境;
+	36.3 客户区坐标: 客户区左上角是(0, 0), 使用GetDC和BeginPaint函数获取设备环境;
+
+		// 5.5.3 视口和窗口
+
+37. 视口: 以设备坐标(像素)的形式指定, 点(0, 0)是客户区/全窗口/屏幕的左上角, x值向右增加, y值向下增加;
+	窗口: 以逻辑坐标(像素/毫米/英寸...)的形式指定, 可以在GDI绘图函数中指定想用的逻辑窗口坐标;
+38. 逻辑点转换成设备点: LPtoDP(hdc, pPoints, iNumber); 设备点转换成逻辑点: DPtoLP(hdc, pPoints, iNumber); iNumber是待转换的点的个数;
+
+		// 5.5.4 使用MM_TEXT
+		// 5.5.5 度量映射模式
+	// 5.6 矩形, 区域和裁剪
+
+39. 区域: 区域指的是屏幕上的一块空间, 它由矩形, 多边形和椭圆组合而成;
+
+		// 5.6.1 处理矩形
+
+40. 处理矩形的函数:
+	40.1 FillRect(hdc, &rect, hBrush);  使用指定的画刷填充矩形(到达但是不包括右下坐标), 且不需要事先把画刷选入设备环境;
+	40.2 FrameRect(hdc, &rect, hBrush);  使用画刷绘制一个矩形框, 但是并不填充矩形; 矩形的边框是一个逻辑单位宽, 如果逻辑单位大于设备单位, 边框的宽度将是2个或者更多像素;
+	40.3 InvertRect(hdc, &rect);  翻转矩形内所有的像素, 黑变白, 白变黑, 绿色变洋红;
+	40.4 SetRect(&rect, xLeft, yTop, xRight, yBottom);  轻松设置Rect的四个值;
+	40.5 OffsetRect(&rect, x, y);  将矩形沿着x轴和y轴移动几个单位;
+	40.6 InflateRect(&rect, x, y);  增大或减小矩形区域;
+	40.7 SetRectEmpty(&rect);  将矩形的各个字段设置为0;
+	40.8 CopyRect(&DestRect, &SrcRect);  将一个矩形复制到另一个矩形结构;  直接写"="也行;
+	40.9 IntersectRect(&DestRect, &SrcRect1, &SrcRect2);  获取两个矩形的交集;
+	40.10 UnionRect(&DestRect, &SrcRect1, &SrcRect2);  获取两个矩形的并集;
+	40.11 bEmpty = IsRectEmpty(&rect);  判断矩形是否为空;
+	40.12 bInRect = PtInRect(&rect, point);  判断点是否在矩形内部;
+
+			// 5.6.2 随机矩形
+
+41. GetMessage函数: "获取"消息, 如果没有获取到消息, 将会一直等待, 获取了以后返回然后删除队列中的消息;
+	PeekMessage(&msg, NULL, 0, 0, PM_REMOVE); 第二个参数是窗口句柄, 第三个和第四个表示信息范围, 将他们设置成NULL, 0, 0表示函数返回程序中所有窗口的所有消息;
+	"偷看"消息, PM_REMOVE表示偷看完了是不是要删除这条消息, 如果没有"偷看"到消息, 他立即返回FALSE, 否则返回TRUE;
+
+			// 5.6.3 建立和绘制区域
+
+42. 建立区域:
+	42.1 建立矩形区域: hRgn = CreateRectRgn(xLeft, yTop, xRight, yBottom) / hRgn = CreateRectRgnIndirect(&rect);
+	42.2 建立椭圆区域: hRgn = CreateEllipticRgn(xLeft, yTop, xRight, yBottom) / hRgn = CreateEllipticRgnIndirect(&rect);
+	42.3 建立圆角矩形区域: CreateRoundRectRgn
+	42.4 建立多边形区域: hRgn = CreatePolygonRgn(&arraypoint, iCount, iPolyFillMode);  // iPolyFillMode: ALTERNATE / WINDING
+43. 将两个区域结合:
+	iRgnType = CombineRgn(hDestRgn, hSrcRgn1, hSrcRgn2, iCombine);
+	函数调用后, hDestRgn先前描述的区域被销毁了, 当使用这个函数时, 可能要让hDestRgn在初始化的时候表示一个很小的区域;
+	iCombine:	描述hSrcRgn1区域和hSrcRgn2区域结合的方式;
+	iRgnType:	NULLREGION 一个空的区域;	SIMPLEREGION 一个简单的矩形, 椭圆, 或者多边形;	COMPLEXREGION 指的是一个矩形, 椭圆或者多边形的组合;	   ERROR 指的是有错误发生;
+44. FillRgn(hdc, hRgn, hBrush);
+	FrameRgn(hdc, hRgn, hBrush, xFrame, yFrame);
+	InvertRgn(hdc, hRgn);
+	PaintRgn(hdc, hRgn);
+45. 用完区域后, 可以用与删除其他GDI对象相同的函数来删除它;
+
+			// 5.6.4 矩形区域的剪裁
+			
+46. InvalidateRgn(hwnd, hRgn, bErase); ValidateRgn(hwnd, hRgn);
+47. 操纵剪裁区域的函数:
+	ExcludeClipRect函数: 从剪裁区域中去除一个矩形; IntersectClipRect函数建立一个新的剪裁区域, 这个剪裁区域是先前的剪裁区域和某个矩形的交集; OffsetClipRgn函数用来把一个剪裁区域移动到客户区的另外一部分; 
+48. 区域总是使用设备坐标;

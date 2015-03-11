@@ -1,0 +1,68 @@
+			创建: 2014-08-26 13:51:54
+			1.	标准对话框	QFileDialog, QColorDialog, QFontDialog...
+			2.	位置函数	x(), y(), pos(), 
+
+1.	标准对话框: 文件对话框, 颜色对话框, 字体对话框, 输入对话框...
+	(1)	文件对话框: 
+		QString s = QFileDialog::getOpenFileName(	// getOpenFileName() 静态函数, 返回文件名 或 ""(取消)
+			this,					// 父窗口
+			"open file dialog",		// 标题
+			"/",					// 默认的目录 如果有文件名则是默认选中的文件
+			"C++ files and Head files(*.cpp *.h);;C files(*c)"	// 对文件类型进行过滤	(*.cpp *.h)	显示两种, ";;" 隔离过滤器
+			// QString * selectedFilter = 0,					// 用户选择的过滤器
+			// Options options = 0
+			);	
+		fileLineEdit->setText(s.toLocal8Bit().constData());
+
+				// QFileDialog 的静态函数
+		// getOpenFileName	获得用户选择的文件名
+		// getSaveFileName	获得用户保存的文件名
+		// getExistingDirectory	获得用户选择的已存在的目录名
+		// getOpenFileName		获得用户选择的文件名列表
+	(2)	颜色对话框
+		QColor color = QColorDialog::getColor(Qt::blue);	// 静态函数, 返回颜色值	这里为什么未指定父窗口????
+		if (color.isValid())	// 如果用户选择了取消, 则QColor::isValid()返回flase;
+			colorFrame->setPalette(QPalette(color));
+	(3)	字体对话框
+		bool ok;
+		QFont font = QFontDialog::getFont(&ok);	// 静态函数, 返回字体, 用户点Cancel, 返回默认字体, ok设为false
+		if (ok)
+			fontLineEdit->setFont(font);
+	(4) 输入对话框		提供了四种类型数据的输入	字符串(QLineEdit)	int(QSpinBox)	double(QSpinBox)	下拉列表框(QComboBox)
+		①	字符串输入	QLineEdit
+			void InputDlg::slotName()
+			{
+				bool ok;
+				QString name = QInputDialog::getText(	// QInputDialog的标准字符串输入对话框
+					this,				// 父窗口
+					tr("User Name"),	// 标题
+					tr("Please input new name: "),		// 提示标签显示内容
+					QLineEdit::Normal,	// 指定QLineEdit控件的输入模式
+					nameLabel->text(),	// QLineEdit中默认出现的文字		
+					&ok);				// Ok => true, Cancel => false
+				if (ok && !name.isEmpty())
+					nameLabel->setText(name);
+			}
+
+		②	下拉列表输入	QComboBox
+			void InputDlg::slotSex()
+			{
+				QStringList list;
+				list << tr("male") << tr("female");
+				bool ok;
+				QString sex = QInputDialog::getItem(this, tr("Sex"),	// 条目选择对话框
+					tr("Please select sex: "), 
+					list,	// 指定QComboBox控件中显示的可选条目, 为一个QStringList对象
+					0,		// 指定对话框弹出时QComboBox默认选择的条目序号
+					false,	// 指定QComboBox控件中显示的文字是否可编辑
+					&ok);
+				if (ok)
+					sexLabel->setText(sex);
+			}
+2.	位置函数
+	(1)	以整个程序为对象(包含标题栏, 边框...)
+		x(), y(), pos(), frameGeometry()
+	(2)	以顶层部件为对象
+		geometry(), rect(), height(), width(), size()
+
+3.	消息框	一共有七种: Question, Information, Warning, Critical, About, AboutQt, Coustom

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="P000 Algorithms.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P000 Functional.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P007    2 C++及其标准程序库简介    .txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P033    4 通用工具 Utilities    .txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P073    5 STL标准模板库    .txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P255 A.txt">
+      <Filter>源文件</Filter>
+    </Text>
+    <Text Include="P255 B.txt">
+      <Filter>源文件</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="P011 typename关键字和成员模板函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P013 模板类的转换复制构造函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P064 型别极值.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P067 辅助函数  挑选较小值和较大值.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P069 辅助性的比较操作符.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P077 容器vector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P078 容器deque.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P079 容器list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P084 迭代器一般用法.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P087 容器set和multiset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P090 容器map和multimap一般用法.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P095 算法 reverse sort 寻最大最小.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P097 半开区间的缺陷.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P102 处理多个区间的算法.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P105 配接器 安插型迭代器.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P107 配接器 流迭代器.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P109 配接器 逆向迭代器.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P111 P112 算法 remove.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P115 删除关联式容器的元素.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P117 算法VS成员函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P119 P120 以函数作为算法的参数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P121 一元判断式.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P123 二元判断式.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P125 仿函数 function object.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P128 仿函数 函数 状态优势.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P132 STL库仿函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P155 Vectors基础知识.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P156 Vectors实例.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P256 多线程.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P259 线程同步.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P472 初始string之引出一个文件名.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P476 string之逆向打印.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P483 string构造函数.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P489 string更改内容.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="P497 string迭代器.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="P118 自定义之泛型函数.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P255 Thread.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="P258 Mutex.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="print.hpp">
+      <Filter>源文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

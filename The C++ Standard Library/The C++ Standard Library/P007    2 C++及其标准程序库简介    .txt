@@ -1,0 +1,12 @@
+		2014.08.14 大二升大三暑假 李村
+
+1.	Template并非一次编译生成出适合所有类型型别的代码, 而是针对被使用的某个(或某组)型别进行编译;
+	(1).	这导致一个问题, 实际处理template时, 面对 template function 你必须先提供他的某个实作品, 然后才能调用, 如此方可通过编译;
+	(2).	解决上边问题的方式是: . 在头文件中以 inline function 实现 template function		.为了消除这个限制, 标准规格导入了一个template compilation model (模板编译模型)和一个关键字export, 但是支持的编译器...
+
+2.	Template 参数:
+	(1).	type 型别
+	(2).	nontype 非型别
+		例如可以把标准类别bitset<>的bits数量以template参数指定之, bitset<32> flags32; bitset<50> flags50; 这些 bitsets 由于使用不同的template参数, 所以有不同的型别, 不能直接互相赋值或比较;
+	(3).	default template parameters 缺省模板参数
+		例如 template<class T, class container = vector<T> > class MyClass; 如果只给了一个参数, 那么缺省参数可以作为第二个参数使用(注意: template缺省参数可以根据前一个或前一些参数而定义);

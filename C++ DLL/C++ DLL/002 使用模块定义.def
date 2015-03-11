@@ -1,0 +1,4 @@
+LIBRARY "C++ DLL"
+
+EXPORTS
+add

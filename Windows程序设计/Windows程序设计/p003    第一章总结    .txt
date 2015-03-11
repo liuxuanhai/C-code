@@ -1,0 +1,37 @@
+1. 什么是32位微处理器? 什么是32位C编译器?
+	CPU中的位指的是一次可以处理的数据量是多少, 8位的CPU一次只能处理一个8位的"数据"或者一个8位的"指令", 比如"0000 1101", 又比如 "+1"这个运算, 首先指示CPU做"+", 完成后再输入"1"数据给CPU;
+2. MS-DOS(Microsoft Disk OperatingSystem, 微软磁盘操作系统), 用户写命令将程序加载进内存, 程序猿只能使用几个简单api, 其他只能和硬件打交道;
+3. TTF(True Type Font, 矢量字体), 该技术把可伸缩字体引入了Windows;
+4. 什么是32位, 抢占式, 多任务, 多线程图形操作系统(windows98, windowNT)
+	早期的windows的多任务系统是"非抢占型(Non-Preemptive)"的, 这些程序必须自觉地放弃对处理器的控制, 给与其他程序运行的机会. 在windowsNT和Window98中, 多任务系统是"抢占型(Preemptive)"的, Windows能够用系统时钟把系统中正在运行的各个程序的处理时间分段, 程序本身也可以 分成多个线程(Thread), 这些线程好像都在同时执行一样;
+5. GUI(Graphical User Interface, 图形用户界面/虚界面/图形窗口环境), 所有GUI都用位图(bitmap)视频显示器显示图形;
+6. 什么是位图视频显示器?  位图是由称作像素的单个点组成的, 这些点可以进行不同的排列和染色以构成图样;
+7. windowAPI编程的基本思想认识:
+	从软件工程师的角度来看, 统一的用户界面意味着编程人员可以使用Windows自带的例程来构建菜单和对话框, 这样所有的菜单都会有相同的键盘和鼠标接口, 因为所有的 这些工作的处理都由windows负责, 用不着应用程序担心;
+8. EMS(Expanded Memory Space, 拓展内存空间), FMS(Flat Memory Space, 平面内存空间):
+	windows1.0在8088微处理器上便能够做到内存管理了, 实际上, windows1.0已经在实模式下突破了PC体系结构上的640KB内存限制, 而且不需要增加任何内存. windows2.0开始允许应用程序对拓展内存空间(EMS)进行访问, 在windows3.0保护模式下, 应用程序可以享用多达16MB的EMS;    windowNT和windows98作为成熟的32位操作系统, 则通过提供平面内存空间FMS完全冲破了这些束缚;
+9. DLL(Dynamic-Link Libraries, 动态链接库)
+10. GDI(Graphics Device Interface, 图形设备接口)是windows自己带有的一种图形编程语言, 用来方便的显示图形和格式化文本, windows把显示硬件虚拟化了, 这样只要有合适的windows设备驱动程序, 针对windows环境编写的程序就可以在任何显卡或打印机上运行, 应用程序本身并不需要知道系统到底配备了什么类型的设备;
+#11. windows程序工作原理的中心思想就是"动态链接"概念:
+	windows自身带有一大套函数, 应用程序就是通过调用这些函数来实现他的用户界面和在屏幕上显示文本与图形的, 这些函数就是在动态链接库里实现的, 这些文件的名称都带有后缀.DLL, 或有时带有后缀.EXE;
+12. window动态链接库中的3大模块:
+	1. 内核(KERNEL.DLL)
+		负责操作系统的传统工作, 包括内存管理, 文件输入输出以及任务管理;
+	2. 用户(User32.DLL)
+		指的是用户界面, 负责所有的窗口管理;
+	3. GDI(GDI32.DLL)
+		图形设备接口, 负责在屏幕或打印机上显示文本与图形;
+13. 调用windows函数和调用c语言的库函数没什么两样, 最主要的区别是c语言库函数的机器代码会直接链接到你的程序代码中, 而windows函数则是放在你的程序之外的DLL里;
+14. 当windows程序运行的时候,他通过一个叫做"动态链接(dynamic liking)"的进程与windows接口, 每个windows的EXE文件包含他所要用的各个动态链接库以及库中的函数的引用地址, 当一个windows程序被装入内存之后, 程序中的函数调用都被解析成DLL函数入口的指针, 同时这些被调用的函数也被装入内存(如果还没有在内存中的话);
+15. 长指针: 包括一个16位的段(Segment)地址和一个16位的位移(Offset)指针;    短指针: 指针仅仅包括在约定的段地址下的一个位移地址;
+16. 利用32位处理器, windows(windows NT, windows 95)开始支持32位的平面内存管理模式, C的int数据类型也因此扩展成32位宽, 为32位windows编写的程序可以直接用32位的指针访问平面线性内存空间;
+17. Win16: 16位的windows(1.0-3.1)的API称为Win16;    Win32: windows(95, 98, NT...)的API称为Win32;
+18. MSDN(Microsoft Developer Network, 微软开发员网络);
+// 开始第一个程序
+19. hPrevInstance: 前一个实例, 可以通过查看这个参数知道是否还有其他实例正在运行, 如果有可以直接和那个共享代码和只读数据, win32中通常为NULL;
+20. PSTR和LPSTR: 这里将LPSTR改成了PSTR, 因为LP是16位windows的产物;
+21. MessageBox(NULL, TEXT("我是内容."), TEXT("Caption Bar"), 0); 返回值有ISYES ISNO IDOK IDCANCEL IDABORT IDRETRY IDIGNORE
+22. WINDEF.H 基本数据类型定义    WINNT.H 支持Unicode的类型定义    WINBASE.H 内核函数    WINUSER.H 用户界面函数    WINGDI.H 图形设备接口函数    --- windows.h中的几个重要文件
+23. WINAPI是一种函数调用约定, 表名如何!生成!在堆栈中放置函数调用参数的机器代码, 绝大多数windows函数调用被定义成WINAPI;
+24. PSTR szCmdLine; 用来运行程序的命令行, 有些程序在运行的时候用它来把文件装入内存;
+25. iCmdShow: 指明程序最初如何显示(最大化/最小化/全屏...);

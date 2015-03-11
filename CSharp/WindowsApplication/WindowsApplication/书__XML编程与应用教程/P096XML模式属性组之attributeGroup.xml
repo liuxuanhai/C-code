@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!-- Build: 2014-11-1 20:58:01 -->
+<EMPLOYEE ID="E001" SEX="MALE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="P096XML模式属性组之attributeGroup.xsd">
+  <FIRSTNAME>Heab</FIRSTNAME>
+  <LASTNAME>King</LASTNAME>
+</EMPLOYEE>

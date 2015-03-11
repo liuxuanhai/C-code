@@ -1,0 +1,977 @@
+PE 16-1
+
+
+// pe16-1.cpp -- one of many possible solutions
+#include <iostream>
+#include <string>
+
+bool isPal(const std::string & s);
+
+int main()
+{
+    std::string input;
+
+    std::cout << "Enter a string (empty string to quit):\n";
+    std::getline(std::cin,input);
+    while (std::cin && input.size() > 0)
+    {
+        if (isPal(input))
+            std::cout << "That was a palindrome!\n";
+        else
+            std::cout << "That was not a palindrome!\n";
+        std::cout << "Enter a string (empty string to quit):\n";
+        std::getline(std::cin,input);
+    }
+    std::cout << "Bye!\n";
+
+    return 0;
+}
+
+bool isPal(const std::string & s)
+{
+    std::string rev(s.rbegin(), s.rend()); // construct reversed string
+
+    // some older compilers don¡¯t implement the above constructor
+    // another approach is this
+    // std::string rev(s);    // rev same size as s
+    // copy(s.rbegin(), s.rend(), rev.begin());
+
+    return (rev == s);
+}
+
+
+PE 16-4
+
+// pe16-4.cpp -- one possibility
+
+#include <iostream>
+#include <algorithm>
+#define MAX 10
+
+int reduce(long ar[], int n);
+void show(const long ar[], int n);
+
+int main()
+{
+    long myarray[MAX] = {12, 12 ,5, 6, 11, 5, 6, 77, 11,12};
+
+    show(myarray, MAX);
+
+    int newsize = reduce(myarray,MAX);
+    show(myarray, newsize);
+    return (0);
+}
+
+int reduce(long ar[], int n)
+{
+    // or one could copy to a list and use list methods
+    // or copy to a set; in either case, copy results
+    // back to array
+    std::sort(ar, ar + n);
+    long * past_end;
+    past_end = std::unique(ar, ar + n);
+    return past_end - ar;
+}
+
+void show(const long ar[], int n)
+{
+    for (int i = 0; i < n; i++)
+        std::cout << ar[i] << ' ';
+    std::cout << std::endl;
+}
+
+
+PE 16-8
+
+// pe16-8.cpp
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include <iterator>
+#include <cstdlib>
+#include <string>
+
+int main()
+{
+    using namespace std;
+    string temp;
+ 
+    set<string> mats;
+    cout << "Enter Mat's guest list (empty line to quit):\n";
+    while (getline(cin,temp) && temp.size() > 0)
+        mats.insert(temp);
+    ostream_iterator<string,char> out (cout, "\n");
+    cout << "Mat's guest list:\n";
+    copy(mats.begin(), mats.end(), out);
+
+    set<string> pats;
+    cout << "Enter Pat's guest list (empty line to quit):\n";
+    while (getline(cin,temp) && temp.size() > 0)
+        pats.insert(temp);
+    cout << "\nPat's guest list:\n";
+    copy(pats.begin(), pats.end(), out);
+
+    set<string> both;
+    set_union(mats.begin(), mats.end(), pats.begin(), pats.end(),
+        insert_iterator<set<string> >(both, both.begin()));
+    cout << "\nMerged guest list:\n";
+    copy(both.begin(), both.end(), out);
+
+    return 0;
+}
+
+Chapter 17
+PE 17-1
+
+// pe17-1.cpp
+#include <iostream>
+
+int main(void)
+{
+    using namespace std;
+    char ch;
+    int count = 0;
+
+    while (cin.get(ch) && ch != '$')
+        count++;
+    if (ch == '$')
+        cin.putback(ch);
+    else
+        cout << "End of input was reached\n";
+    cout << count << " characters read\n";
+    cin.get(ch);
+    cout << "Then next input character is " << ch << endl;
+    return 0;
+}
+
+PE 17-3
+
+// pe17-3.cpp
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+
+int main(int argc, char * argv[])
+{
+    using namespace std;
+    if (argc < 3)
+    {
+        cerr << "Usage: " << argv[0]
+            << " source-file target-file\n";
+        exit(EXIT_FAILURE);
+    }
+    ifstream fin(argv[1]);
+    if (!fin)
+    {
+        cerr << "Can't open " << argv[1] << " for input\n";
+        exit(EXIT_FAILURE);
+    }
+    ofstream fout(argv[2]);
+    if (!fout)
+    {
+        cerr << "Can't open " << argv[2] << " for output\n";
+        exit(EXIT_FAILURE);
+    }
+    char ch;
+    while (fin.get(ch))
+        fout << ch;
+    cout << "Contents of " << argv[1] << " copied to " 
+         << argv[2] << endl;
+    fin.close();
+    fout.close();
+    return 0;
+}
+
+PE 17-5
+
+// pe17-5.cpp
+#include <iostream>
+#include <fstream>
+#include <set>
+#include <algorithm>
+#include <iterator>
+#include <cstdlib>
+#include <string>
+
+int main()
+{
+    using namespace std;
+    ifstream mat("mat.dat");
+    if (!mat.is_open())
+    {
+        cerr << "Can't open mat.dat.\n";
+        exit(1);
+    }
+    ifstream pat("pat.dat");
+    if (!pat.is_open())
+    {
+        cerr << "Can't open pat.dat.\n";
+        exit(1);
+    }
+ 
+    ofstream matnpat("matnpat.dat");
+    if (!matnpat.is_open())
+    {
+        cerr << "Can't open pat.dat.\n";
+        exit(1);
+    }
+   
+    string temp;
+
+    set<string> mats;
+    while (getline(mat,temp))
+        mats.insert(temp);
+    ostream_iterator<string,char> out (cout, "\n");
+    cout << "Mat's guest list:\n";
+    copy(mats.begin(), mats.end(), out);
+
+    set<string> pats;
+    while (getline(pat,temp))
+        pats.insert(temp);
+    cout << "\nPat's guest list:\n";
+    copy(pats.begin(), pats.end(), out);
+
+    ostream_iterator<string,char> fout (matnpat, "\n");
+    set<string> both;
+    set_union(mats.begin(), mats.end(), pats.begin(), pats.end(),
+        insert_iterator<set<string> >(both, both.begin()));
+    cout << "\nMerged guest list:\n";
+    copy(both.begin(), both.end(), out);
+    copy(both.begin(), both.end(), fout);
+
+    return 0;
+}
+    if (!pat.is_open())
+    {
+        cerr << "Can't open pat.dat.\n";
+        exit(1);
+    }
+ 
+    ofstream matnpat("matnpat.dat");
+    if (!matnpat.is_open())
+    {
+        cerr << "Can't open pat.dat.\n";
+        exit(1);
+    }
+   
+    string temp;
+
+    set<string> mats;
+    while (getline(mat,temp))
+        mats.insert(temp);
+    ostream_iterator<string,char> out (cout, "\n");
+    cout << "Mat's guest list:\n";
+    copy(mats.begin(), mats.end(), out);
+
+    set<string> pats;
+    while (getline(pat,temp))
+        pats.insert(temp);
+    cout << "\nPat's guest list:\n";
+    copy(pats.begin(), pats.end(), out);
+
+    ostream_iterator<string,char> fout (matnpat, "\n");
+    set<string> both;
+    set_union(mats.begin(), mats.end(), pats.begin(), pats.end(),
+        insert_iterator<set<string> >(both, both.begin()));
+    cout << "\nMerged guest list:\n";
+    copy(both.begin(), both.end(), out);
+    copy(both.begin(), both.end(), fout);
+
+    return 0;
+
+}
+
+
+PE 17-7
+
+// pe17-7.cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cstdlib>
+
+void ShowStr(const std::string & s);
+void GetStrs(std::istream & is, std::vector<std::string> & vs);
+
+class Store
+{
+public:
+    std::ostream & os;
+    Store (std::ostream & o) : os(o) {}
+    void operator()(const std::string &s); 
+};
+
+int main()
+{
+    using namespace std;
+    vector<string> vostr;
+    string temp;
+
+// acquire strings
+    cout << "Enter strings (empty line to quit):\n";
+    while (getline(cin,temp) && temp[0] != '\0')
+        vostr.push_back(temp);
+    cout << "Here is your input.\n";
+    for_each(vostr.begin(), vostr.end(), ShowStr);
+
+// store in a file
+    ofstream fout("strings.dat", ios_base::out | ios_base::binary);
+    for_each(vostr.begin(), vostr.end(), Store(fout));
+    fout.close();
+
+// recover file contents
+    vector<string> vistr;
+    ifstream fin("strings.dat", ios_base::in | ios_base::binary);
+    if (!fin.is_open())
+    {
+        cerr << "Could not open file for input.\n";
+        exit(EXIT_FAILURE);
+    }
+    GetStrs(fin, vistr);
+    cout << "\nHere are the strings read from the file:\n";
+    for_each(vistr.begin(), vistr.end(), ShowStr);
+
+    return 0;
+}
+
+void ShowStr(const std::string & s)
+{
+    std::cout << s << std::endl;
+}
+
+void Store::operator()(const std::string &s)
+{
+    std::size_t len = s.size();
+    os.write((char *)&len, sizeof(std::size_t));
+    os.write(s.data(), len);
+}
+
+void GetStrs(std::istream & is, std::vector<std::string> & vs)
+{
+    std::string temp;
+    size_t len;
+
+    while (is.read((char *) &len, sizeof(size_t)) && len > 0)
+    {
+        char ch;
+        temp = "";
+        for (int j = 0; j < len; j++)
+        {
+            if (is.read(&ch, 1))
+            {
+                temp += ch;
+            }
+            else
+                break;
+        }
+        if (is)
+            vs.push_back(temp);
+    }
+}
+
+
+
+PE 12-2
+
+
+// pe12-2.cpp
+#include <iostream>
+//#include "string2.h"
+#include "pe12strg.h"    // alternative name
+int main()
+{
+    using std::cout;
+    using std::cin;
+    String s1(" and I am a C++ student.");
+    String s2 = "Please enter your name: ";
+    String s3;
+    cout << s2;                 // overloaded << operator
+    cin >> s3;                  // overloaded >> operator
+    s2 = "My name is " + s3;    // overloaded =, + operators
+    cout << s2 << ".\n";
+    s2 = s2 + s1;
+    s2.stringup();              // converts string to uppercase
+    cout << "The string\n" << s2 << "\ncontains " << s2.has('A')
+            << " 'A' characters in it.\n";
+    s1 = "red";     // String(const char *),
+                    // then String & operator=(const String&)
+    String rgb[3] = { String(s1), String("green"), String("blue")};
+    cout << "Enter the name of a primary color for mixing light: ";
+    String ans;
+    bool success = false;
+    while (cin >> ans)
+    {
+        ans.stringlow();        // converts string to lowercase
+        for (int i = 0; i < 3; i++)
+        {
+            if (ans == rgb[i])  // overloaded == operator
+            {
+                cout << "That's right!\n";
+                success = true;
+                break;
+            }
+        }
+        if (success)
+            break;
+        else
+            cout << "Try again!\n";
+    }
+    cout << "Bye\n";
+    return 0;
+}
+
+// pe12strg.h
+
+#ifndef PE12STRG_H_
+#define PE12STRG_H_
+#include <iostream>
+
+class String {
+private:
+    char * str;            // pointer to a string
+    int chars;             // number of characters
+    static int strings;    // total number of strings
+public:
+    String();
+    String(const char * ps); // converts C++ string to String
+    String(const String & s);
+    ~String();
+    int numstrings();
+    int len();
+    void stringup();
+    void stringlow();
+    int has(char ch);
+    String & operator=(const String & s);
+    friend std::ostream & operator<<(std::ostream & os, const String & s);
+    friend std::istream & operator>>(std::istream & os, String & s);
+    friend String operator+(const String & s1, const String & s2);
+    friend int operator==(const String & s1, const String & s2);
+    friend int operator<(const String & s1, const String & s2);
+    friend int operator>(const String & s1, const String & s2);
+};
+
+#endif
+// pe12strg.cpp
+#include <iostream>
+#include <cctype>
+//#include "string2.h"
+#include "pe12strg.h"  // alternative name
+int String::strings = 0;
+
+String::String()
+{
+    str = NULL;
+    chars = 0;
+    strings++;
+}
+
+String::String(const char * ps)
+{
+    chars = std::strlen(ps);
+    str = new char [chars + 1];
+    std::strcpy(str, ps);
+    strings++;
+}
+
+String::String(const String & s)
+{
+    chars = s.chars;
+    str = new char [chars + 1];
+    std::strcpy(str, s.str);
+    strings++;
+}
+
+String::~String()
+{
+    strings--;
+    delete [] str;
+}
+
+int String::numstrings()
+{
+    return strings;
+}
+
+int String::len()
+{
+    return chars;
+}
+
+void String::stringup()
+{
+    for (int i = 0; i < chars; i++)
+        str[i] = std::toupper(str[i]);
+}
+
+void String::stringlow()
+{
+    for (int i = 0; i < chars; i++)
+        str[i] = std::tolower(str[i]);
+}
+
+String & String::operator=(const String & s) // allows chaining
+{
+    if (this == &s)     // assignment to self
+        return * this;
+    delete [] str;            // free old contents, if any
+    chars = s.chars;
+    str = new char [chars + 1];
+    std::strcpy(str, s.str);
+    return * this;
+}
+
+std::ostream & operator<<(std::ostream & os, const String & s)
+{
+    os << s.str;
+    return os;
+}
+
+std::istream & operator>>(std::istream & is, String & s)
+{
+    char temp[80];
+    is.getline(temp,80);
+    s = temp;
+    return is;
+}
+
+String operator+(const String & s1, const String & s2)
+{
+    int len = s1.chars + s2.chars;
+    char * ps = new char [len + 1];
+    std::strcpy(ps, s1.str);
+    std::strcat(ps, s2.str);
+    String temp(ps);
+    return temp;
+}
+
+int String::has(char ch)
+{
+    int ct = 0;
+    char * ps = str;
+    while (*ps)
+    {
+        if (*ps++ == ch)
+            ++ct;
+    }
+    return ct;
+}
+
+int operator==(const String & s1, const String & s2)
+{
+    if (s1.chars != s2.chars)
+        return 0;
+    else if (std::strcmp(s1.str, s2.str) == 0)
+        return 1;
+    else
+        return 0;
+}
+
+int operator<(const String & s1, const String & s2)
+{
+    if (std::strcmp(s1.str, s2.str) < 0)
+        return 1;
+    else
+        return 0;
+}
+int operator>(const String & s1, const String & s2)
+{
+    if (std::strcmp(s1.str, s2.str) > 0)
+        return 1;
+    else
+        return 0;
+}
+
+
+PE 12-4
+
+// pe12stak.h -- class definition for the stack ADT
+#ifndef PE12STAK_H_
+#define PE12STAK_H_
+
+typedef unsigned long Item;
+
+class Stack
+{
+private:
+    enum {MAX = 10};    // constant specific to class
+    Item * pitems;    // holds stack items
+    int size;    // max number of elements in stack
+    int top;        // index for top stack item
+    Stack(const Stack & st) { } // no copying of stacks
+    Stack & operator=(const Stack & st) { return *this; } // no assignment
+public:
+    Stack(int n = MAX);
+    ~Stack();
+    bool isempty() const;
+    bool isfull() const;
+    // push() returns false if stack already is full, true otherwise
+    bool push(const Item & item);    // add item to stack
+    // pop() returns false if stack already is empty, true otherwise
+    bool pop(Item & item);    // pop top into item
+};
+#endif
+
+// pe12stak.cpp -- Stack member functions
+#include "pe12stak.h"
+Stack::Stack(int n)    // create an empty stack
+{
+    size = n;
+    pitems = new Item [size];
+    top = 0;
+}
+Stack::~Stack() { delete [] pitems; }
+
+bool Stack::isempty() const
+{
+    return top == 0 ? true: false;
+}
+
+bool Stack::isfull() const
+{
+    return top == size ? true: false;
+}
+
+bool Stack::push(const Item & item)
+{
+    if (top < size)
+    {
+        pitems[top++] = item;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Stack::pop(Item & item)
+{
+    if (top > 0)
+    {
+        item = pitems[--top];
+        return true;
+    }
+    else
+        return false;
+}
+
+// pe12-4.cpp
+
+#include <iostream>
+#include <cctype>
+#include "pe12stak.h"     // modified to define customer structure
+// link with pe12stak.cpp
+int main(void)
+{
+    using namespace std;
+    Stack st(3); // create a stack of po numbers
+    unsigned long temp;
+    char c;
+
+    cout << "Please enter A to add a PO,\n"
+          << "P to process a PO, and Q to quit.\n";
+    while (cin >> c && (c = toupper(c)) != 'Q')
+    {
+        while (cin.get() != '\n')
+            continue;
+        if (c != 'A' && c != 'P')
+        {
+            cout << "Please respond with A, P, or Q: ";
+            continue;
+        }
+        switch (c)
+        {
+            case 'A': if (st.isfull())
+                    cout << "stack already full\n";
+                else
+                {
+                    cout << "Enter PO number: ";
+                    cin >> temp;
+                    st.push(temp);
+                }
+                break;
+            case 'P': if (st.isempty())
+                    cout << "stack already empty\n";
+                else {
+                    st.pop(temp);
+                    cout << "Processing PO " << temp << '\n';
+                }
+                break;
+            default: cout << "Whoops! Programming error!\n";
+        }
+        cout << "Please enter A to add a customer,\n"
+        << "P to process a customer, and Q to quit.\n";
+    }
+    cout << "Done!\n";
+    return 0;
+}
+
+PE 12-6
+
+
+// pe12que.h -- interface for a queue
+#ifndef _QUEUE_H_
+#define _QUEUE_H_
+// This queue will contain Customer items
+class Customer
+{
+private:
+    long arrive;        // arrival time for customer
+    int processtime;    // processing time for customer
+public:
+    Customer() { arrive = processtime = 0; }
+    void set(long when);
+    long when() const { return arrive; }
+    int ptime() const { return processtime; }
+};
+
+typedef Customer Item;
+
+class Queue
+{
+private:
+// class scope definitions
+    // Node is a nested structure definition local to this class
+    struct Node { Item item; struct Node * next;};
+    enum {Q_SIZE = 10};
+// private class members
+    Node * front;       // pointer to front of Queue
+    Node * rear;        // pointer to rear of Queue
+    int items;          // current number of items in Queue
+    const int qsize;    // maximum number of items in Queue
+    // preemptive definitions to prevent public copying
+    Queue(const Queue & q) : qsize(0) { }
+    Queue & operator=(const Queue & q) { return *this;}
+public:
+    Queue(int qs = Q_SIZE); // create queue with a qs limit
+    ~Queue();
+    bool isempty() const;
+    bool isfull() const;
+    int queuecount() const;
+    bool enqueue(const Item &item); // add item to end
+    bool dequeue(Item &item);       // remove item from front
+};
+#endif
+
+// pe12que.cpp -- Queue and Customer methods
+#include "pe12que.h"
+#include <cstdlib>         // (or stdlib.h) for rand()
+using std::rand;
+
+// Queue methods
+Queue::Queue(int qs) : qsize(qs)
+{
+    front = rear = NULL;
+    items = 0;
+}
+
+Queue::~Queue()
+{
+    Node * temp;
+    while (front != NULL)   // while queue is not yet empty
+    {
+        temp = front;       // save address of front item
+        front = front->next;// reset pointer to next item
+        delete temp;        // delete former front
+    }
+}
+
+bool Queue::isempty() const
+{
+    return items == 0;
+}
+
+bool Queue::isfull() const
+{
+    return items == qsize;
+}
+
+int Queue::queuecount() const
+{
+    return items;
+}
+
+// Add item to queue
+bool Queue::enqueue(const Item & item)
+{
+    if (isfull())
+        return false;
+    Node * add = new Node;  // create node
+    if (add == NULL)
+        return false;       // quit if none available
+    add->item = item;       // set node pointers
+    add->next = NULL;
+    items++;
+    if (front == NULL)      // if queue is empty,
+        front = add;        // place item at front
+    else
+        rear->next = add;   // else place at rear
+    rear = add;             // have rear point to new node
+    return true;
+}
+
+// Place front item into item variable and remove from queue
+bool Queue::dequeue(Item & item)
+{
+    if (front == NULL)
+        return false;
+    item = front->item;     // set item to first item in queue
+    items--;
+    Node * temp = front;    // save location of first item
+    front = front->next;    // reset front to next item
+    delete temp;            // delete former first item
+    if (items == 0)
+        rear = NULL;
+    return true;
+}
+
+// customer method
+
+// when is the time at which the customer arrives
+// the arrival time is set to when and the processing
+// time set to a random value in the range 1 - 3
+void Customer::set(long when)
+{
+    processtime = std::rand() % 3 + 1;
+    arrive = when;
+}
+
+// pe12-6.cpp -- use the Queue interface
+// link to pe12que.cpp
+// modify Listing 12.10 by adding a second queue
+#include <iostream>
+#include <ctime>    // for time()
+#include <cstdlib>    // for rand() and srand()
+#include "pe12que.h"
+
+const long MIN_PER_HR = 60L;
+
+bool newcustomer(double x);        // is there a new customer?
+
+int main(void)
+{
+    using std::cin;
+    using std::cout;
+    using std::endl;
+    using std::ios_base;
+
+// setting things up
+    std::srand(std::time(0));     //  random initializing of rand()
+
+    cout << "Case Study: Bank of Heather Automatic Teller\n";
+    cout << "Enter maximum size of each queue: ";
+    int qs;
+    cin >> qs;
+    Queue line1(qs);            // line queue holds up to qs people
+    Queue line2(qs);            // second queue
+
+    cout << "Enter the number of simulation hours: ";
+    int hours;                //  hours of simulation
+    cin >> hours;
+    // simulation will run 1 cycle per minute
+    long cyclelimit = MIN_PER_HR * hours; // # of cycles
+    Item temp;            //  new customer data
+    long turnaways;        //  turned away by full queue
+    long customers;         //  joined the queue
+    long served;        //  served during the simulation
+    long sum_line;        //  cumulative line length
+    int wait_time1;        //  time until autoteller1 is free
+    int wait_time2;        //  time until autoteller2 is free
+    long line_wait;        //  cumulative time in line
+     double min_per_cust;    //  average time between arrivals
+
+    cout << "Enter the average number of customers per hour: ";
+    double perhour;         //  average # of arrival per hour
+    cin >> perhour;
+    while ( perhour > 0 ) // begin new loop
+    {
+     min_per_cust = MIN_PER_HR / perhour;
+     turnaways = 0;
+     customers = 0;
+     served = 0;
+     sum_line = 0;
+     wait_time1 = wait_time2 = 0;
+     line_wait = 0;
+
+// running the simulation
+     for (long cycle = 0; cycle < cyclelimit; cycle++)
+     {
+        if (newcustomer(min_per_cust))    // have newcomer
+        {
+            if (line1.isfull() && line2.isfull())
+                turnaways++;
+            else // at least one line is not full
+            {
+                customers++;
+                temp.set(cycle);    // cycle = time of arrival
+// add customer to shorter line
+                if (line1.queuecount() <= line2.queuecount())
+                    line1.enqueue(temp);    // add newcomer to line1
+                else
+                    line2.enqueue(temp);    // add newcomer to line2
+                }
+        }
+// process customers in first queue
+        if (wait_time1 <= 0 && !line1.isempty())
+        {
+            line1.dequeue (temp);      // attend next customer
+            wait_time1 = temp.ptime(); // for wait_time minutes
+            line_wait += cycle - temp.when();
+            served++;
+        }
+        if (wait_time1 > 0)
+            wait_time1--;
+        sum_line += line1.queuecount();
+// process customers in second queue
+        if (wait_time2 <= 0 && !line2.isempty())
+        {
+            line2.dequeue (temp);      // attend next customer
+            wait_time2 = temp.ptime(); // for wait_time minutes
+            line_wait += cycle - temp.when();
+            served++;
+        }
+        if (wait_time2 > 0)
+            wait_time2--;
+        sum_line += line2.queuecount();
+     }
+// reporting results
+     if (customers > 0)
+     {
+        cout << "customers accepted: " << customers << '\n';
+        cout << "  customers served: " << served << '\n';
+        cout << "         turnaways: " << turnaways << '\n';
+        cout << "average queue size: ";
+        cout.precision(2);
+        cout.setf(ios_base::fixed, ios_base::floatfield);
+        cout.setf(ios_base::showpoint);
+        cout << (double) sum_line / cyclelimit << '\n';
+        cout << " average wait time: "
+             << (double) line_wait / served << " minutes\n";
+     }
+     else
+        cout << "No customers!\n";
+     // clear queues
+     while (!line1.isempty())
+        line1.dequeue(temp);
+     while (!line2.isempty())
+        line2.dequeue(temp);
+
+     cout << "Enter new value for customers per hour (0 to quit): ";
+     cin >> perhour;
+    } // end of new loop
+    cout << "Bye\n";
+
+    return 0;
+}
+
+//  x = average time, in minutes, between customers
+//  return value is true if customer shows up this minute
+bool newcustomer(double x)
+{
+    if (std::rand() * x / RAND_MAX < 1)
+        return true;
+    else
+        return false;
+}
+Chapter 13

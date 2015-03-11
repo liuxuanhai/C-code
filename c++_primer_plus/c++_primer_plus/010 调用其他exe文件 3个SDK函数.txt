@@ -1,0 +1,253 @@
+			Build: 2014-10-11 17:56:20
+
+一、三个SDK函数:
+
+WinExec，ShellExecute ，CreateProcess可以实现调用其他程序的要求，其中以WinExec最为简单，ShellExecute比WinExec灵活一些，CreateProcess最为复杂。
+WinExec 两个参数，前一个指定路径，后一个指定显示方式。
+ShellExecute 可以指定工作目录,并且还可以寻找文件的关联直接打开不用加载与文件关联的应用程序，ShellExecute还可以打开网页，启动相应的邮件关联发送邮件等等。
+CreateProcess 一共有十个参数，不过大部分都可以用NULL代替，它可以指定进程的安全属性，继承信息，类的优先级等等。如果我们要得到足够多的关于新的进程的信息，控制新的进程的细节属性，若要达到这些目的，我们就需要使用CreateProcess函数了。
+
+1.winexec(String lpCmdLine,Long nCmdShow);
+
+参数说明:
+
+ 
+
+
+参数	类型及说明
+lpCmdLine	String，包含要执行的命令行  
+nCmdShow	Long，为窗口指定可视性方面的一个命令。请用下述任何一个常数
+	SW_HIDE	隐藏窗口，活动状态给令一个窗口
+	SW_MINIMIZE	最小化窗口，活动状态给令一个窗口
+	SW_RESTORE	用原来的大小和位置显示一个窗口，同时令其进入活动状态
+	SW_SHOW	用当前的大小和位置显示一个窗口，同时令其进入活动状态
+	SW_SHOWMAXIMIZED	最大化窗口，并将其激活
+	SW_SHOWMINIMIZED	最小化窗口，并将其激活
+	SW_SHOWMINNOACTIVE	最小化一个窗口，同时不改变活动窗口
+	SW_SHOWNA	用当前的大小和位置显示一个窗口，不改变活动窗口
+	SW_SHOWNOACTIVATE	用最近的大小和位置显示一个窗口，同时不改变活动窗口
+	SW_SHOWNORMAL	与SW_RESTORE相同  
+
+
+例: winexec("c:\\a.txt",SW_SHOW);
+
+2.ShellExecute
+
+
+ 
+
+参数	类型及说明
+hwnd	Long，指定一个窗口的句柄，有时候，windows程序有必要在创建自己的主窗口前显示一个消息框
+lpOperation	String，指定字串“open”来打开lpFlie文档，或指定“Print”来打印它
+lpFile	String，想用关联程序打印或打开一个程序名或文件名
+lpParameters	String，如lpszFlie是可执行文件，则这个字串包含传递给执行程序的参数
+lpDirectory	String，想使用的完整路径
+nShowCmd	Long，定义了如何显示启动程序的常数值。参考上表.  
+
+使用方法如下：
+例:ShellExecute(Handle, ''open'', PChar(''c:\test\readme.txt''), nil, nil, SW_SHOW);
+ShellExecute(NULL,"open","C://Test.txt",NULL,NULL,SW_SHOWNORMAL); // 打开C:/Test.txt 文件
+ShellExecute(NULL, "open", "http://www.2cto.com",/ NULL, NULL, SW_SHOWNORMAL); // 打开网页www.2cto.com
+ShellExecute(NULL,"explore", "D://C++",NULL,NULL,SW_SHOWNORMAL); // 打开目录D:/C++
+ShellExecute(NULL,"print","C://Test.txt",NULL,NULL, SW_HIDE); // 打印文件C:/Test.txt
+
+3.CreateProcess
+
+
+
+ 参数类型及说明lpApplicationNameString，要执行的应用程序的名字。可设为vbNullString；在这种情况下，应用程序的名字应在lpCommandLine参数的起始处出现lpCommandLineString，要执行的命令行。可用GetCommandLine函数取得一个进程使用的命令行。Windows会尽可能地根据下述搜索顺序来查找执行文件：
+（1）包含了父进程执行文件的目录
+（2）父进程当前的目录
+（3）由GetSystemDirectory返回的系统目录
+（4）仅适于windows NT：16位系统目录
+（5）由GetWindowDirectory返回的Windows目录
+（6）由PATH环境变量指定的目录lpProcessAttributesSECURITY_ATTRIBUTES，指定一个SECURITY_ATTRIBUTES结构，或传递零值（将参数声明为ByVal As Long，并传递零值）——表示采用不允许继承的默认描述符。该参数定义了进程的安全特性lpThreadAttributesSECURITY_ATTRIBUTES，指定一个SECURITY_ATTRIBUTES结构，或传递零值（将参数声明为ByVal As Long，并传递零值）——表示采用不允许继承的默认描述符。该参数定义了进程之主线程的安全特性bInheritHandlesLong，TRUE表示允许当前进程中的所有句柄都由新建的子进程继承dwCreationFlagsLong，来自API32.TXT文件的一个或多个下述常数之一，它们都带有前缀CREATE_。下面这些用于VB程序员：CREATE_SEPARATE_WOW_VDM（仅适用于NT）启动一个16位的Windows应用程序时，强迫它在自己的内存空间运行CREATE_SHARED_WOW_VDM（仅适用于NT）启动一个16位的Windows应用程序时，强迫它在共享的16位虚拟机（VM）内运行CREATE_SUSPENDED立即挂起新进程。除非调用了ResumeThread函数函数，否则它不会恢复运行也可能是下述常数之一，用于指定优先级IDLE_PRIORITY_CLASS新进程应该有非常低的优先级——只有在系统空闲的时候才能运行。基本值是4HIGH_PRIORITY_CLASS新进程有非常高的优先级，它优先于大多数应用程序。基本值是13。注意尽量避免采用这个优先级NORMAL_PRIORITY_CLASS标准优先级。如进程位于前台，则基本值是9；如在后台，则优先值是7不要在VB中使用REALTIME_PRIORITY_CLASSlpEnvironmentAny，指向一个环境块的指针（环境缓冲区的头一个字符，或者环境块的地址）lpCurrentDriectoryString，新进程的当前目录路径。调用函数的时候，可用vbNullString指定当前目录lpStartupInfoSTARTUPINFO，指定一个STARTUPINFO结构，其中包含了创建进程时使用的附加信息lpProcessInformation
+PROCESS_INFORMATION，该结构用于容纳新进程的进程和线程标识符。大多数情况下，一旦这个函数返回，父应用程序都会关闭两个句柄。
+ 
+
+二、WinExec、ShellExecute和CreateProcess及返回值判断方式
+
+有三个API函数可以运行可执行文件WinExec、ShellExecute和CreateProcess。CreateProcess因为使用复杂，比较少用。
+　　WinExec主要运行EXE文件。
+　　⑴　函数原型： UINT Win Exec(LPCSTR lpCmdLine, UINT uCmdShow);
+　　⑵　参数：
+　　lpCmdLine：指向一个空结束的字符串，串中包含将要执行的应用程序的命令行（文件名加上可选参数）。
+　　uCmdShow：定义Windows应用程序的窗口如何显示，并为CreateProcess函数提供STARTUPINFO参数的wShowWindow成员的值。
+　　⑶　返回值：
+　　若函数调用成功，则返回值大于31。若函数调用失败，则返回值为下列之一：
+　　①　0：系统内存或资源已耗尽。
+　　②　ERROR_BAD_FORMAT：EXE文件无效（非Win32.EXE或.EXE影像错误）。
+　　③　ERROR_FILE_NOT_FOUND：指定的文件未找到。
+　　④　ERROR_PATH_NOT_FOUND：指定的路径未找到。
+　　虽然Microsoft认为WinExec已过时，但是在许多时候，简单的WinExec函数仍是运行新程序的最好方式。简单地传送作为第一个参数的 命令行，还需要决定如何显示程序（该程序也许会忽视它）的第二个参数。通常，将其设置为SW_SHOW，也可尝试SW_MINIMIZED或 SW_MAXIMIZED。WinExec不允许用CreateProcess获得的所有选项，而它的确简单。
+
+　　ShellExecute不仅可以运行EXE文件，也可以运行已经关联的文件。
+1、标准用法
+　　ShellExecute函数原型及参数含义如下：
+HINSTANCE ShellExecute(HWND hwnd, LPCTSTR lpOperation, LPCTSTR lpFile, LPCTSTR lpParameters, LPCTSTR lpDirectory, INT nShowCmd);
+　　●hWnd：用于指定父窗口句柄。当函数调用过程出现错误时，它将作为Windows消息窗口的父窗口。例如，可以将其设置为应用程序主窗口句柄，即Application.Handle，也可以将其设置为桌面窗口句柄（用GetDesktopWindow函数获得）。
+　　●lpOperation：用于指定要进行的操作。其中“open”操作表示执行由FileName参数指定的程序，或打开由FileName参数指定的文件或文件夹；“print”操作表示打印由FileName参数指定的文件；“explore”操作表示浏览由FileName参数指定的文件夹。当参数设为nil时，表示执行默认操作“open”。
+　　●lpFileName：用于指定要打开的文件名、要执行的程序文件名或要浏览的文件夹名。
+　　●lpParameters：若FileName参数是一个可执行程序，则此参数指定命令行参数，否则此参数应为nil或PChar(0)。
+　　●lpDirectory：用于指定默认目录。
+　　●lpShowCmd：若FileName参数是一个可执行程序，则此参数指定程序窗口的初始显示方式，否则此参数应设置为0。
+　　返回值：
+[cpp]
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <windows.h> 
+#include <shellapi.h> 
+ 
+int main( void ) 
+{ 
+HINSTANCE hNewExe = ShellExecuteA(NULL, "open", "d:\\tese.log", NULL, NULL, SW_SHOW); 
+if ((DWORD)hNewExe <= 32) 
+{ 
+printf("return value:%d\n", (DWORD)hNewExe); 
+} 
+else 
+{ 
+printf("successed!\n"); 
+} 
+　 　printf("GetLastError: %d\n", GetLastError()); 
+system("pause"); 
+return 1; 
+} 
+　 
+
+
+　当“D:\\test.log”文件不存在是，执行结果如下：
+　　这里若函数执行错误, GetLastError()不一定能捕获到错误代码,例如当“d:\\tese.log”文件存在,将记事本"notepad.exe"命名为其他名字时：
+　　另外两个函数的返回值就不列出了。
+2、特殊用法
+　　1)如果将FileName参数设置为“http:”协议格式，那么该函数将打开默认浏览器并链接到指定的URL地址。若用户机器中安装了多个浏览器，则该函数将根据Windows 9x/NT注册表中http协议处理程序（Protocols Handler）的设置确定启动哪个浏览器。
+　　格式一：http://网站域名。 　　　　　　如：ShellExecute(handle, “open”, “http://www.neu.edu.cn”, nil, nil, SW_SHOWNORMAL);
+　　格式二：http://网站域名/网页文件名。　　如：ShellExecute(handle, “open”, “http://www.neu.edu.cn/default.htm”, nil, nil, SW_SHOWNORMAL);
+　　2)如果将FileName参数设置为“mailto:”协议格式，那么该函数将启动默认邮件客户程序，如Microsoft Outlook（也包括Microsoft Outlook Express）或Netscape Messanger。若用户机器中安装了多个邮件客户程序，则该函数将根据Windows 9x/NT注册表中mailto协议处理程序的设置确定启动哪个邮件客户程序。
+　　格式一：mailto: 　　　　如：ShellExecute(handle, "open", "mailto:", nil, nil, SW_SHOWNORMAL);打开新邮件窗口。
+　　格式二：mailto:用户账号@邮件服务器地址 如：ShellExecute(handle, "open", "mailto:who@mail.neu.edu.cn", nil, nil, SW_SHOWNORMAL);
+　　打开新邮件窗口，并自动填入收件人地址。若指定多个收件人地址，则收件人地址之间必须用分号或逗号分隔开（下同）
+如：ShellExecute(this->m_hWnd, "open", "mailto:nishinapp@yahoo.com", "", "", SW_SHOW);
+　　格式三：mailto:用户账号@邮件服务器地址?subject=邮件主题＆body=邮件正文
+　　如：ShellExecute(handle, "open", "mailto:who@mail.neu.edu.cn？subject=Hello＆Body=This is a test", nil, nil, SW_SHOWNORMAL);
+　　打开新邮件窗口，并自动填入收件人地址、邮件主题和邮件正文。若邮件正文包括多行文本，则必须在每行文本之间加入换行转义字符%0a。
+
+例子(delphi):
+在一个应用程序调用c:Project1.exe;
+　　ShellExecute(handle, ’open’,’c:Project1.exe’,’字串内容’,nil, SW_SHOWNORMAL);
+在Project1.exe里可以调用:
+procedure TForm1.FormCreate(Sender: TObject);
+var i:integer;
+begin
+for i:=1 to paramcount do
+if ParamStr(i)〈〉’’ then showmessage(ParamStr(i));
+end;
+最后的那个参数，为窗口指定可视性方面的一个命令。 请用下述任何一个常数
+SW_HIDE 隐藏窗口，活动状态给令一个窗口
+SW_MINIMIZE 最小化窗口，活动状态给令一个窗口
+SW_RESTORE 用原来的大小和位置显示一个窗口，同时令其进入活动状态
+SW_SHOW 用当前的大小和位置显示一个窗口，同时令其进入活动状态
+SW_SHOWMAXIMIZED 最大化窗口，并将其激活
+SW_SHOWMINIMIZED 最小化窗口，并将其激活
+SW_SHOWMINNOACTIVE 最小化一个窗口，同时不改变活动窗口
+SW_SHOWNA 用当前的大小和位置显示一个窗口，不改变活动窗口
+SW_SHOWNOACTIVATE 用最近的大小和位置显示一个窗口，同时不改变活动窗口
+SW_SHOWNORMAL 与SW_RESTORE相同
+　　3、深入浅出ShellExecute 译者：徐景周(原作:Nishant S)
+Q: 如何打开一个应用程序? 正如您所看到的，我并没有传递程序的完整路径。
+　　ShellExecute(this->m_hWnd, "open", "calc.exe", "", "", SW_SHOW);
+或ShellExecute(this->m_hWnd, "open", "notepad.exe", "c:\\MyLog.log", "", SW_SHOW);
+Q: 如何打开一个同系统程序相关连的文档?
+ShellExecute(this->m_hWnd, "open", "c:\\abc.txt", "", "", SW_SHOW);
+Q: 如何打开一个网页?
+ShellExecute(this->m_hWnd, "open", "http://www.2cto.com", "", "", SW_SHOW);
+Q: 如何激活相关程序，发送EMAIL?
+ShellExecute(this->m_hWnd,"open", "mailto:nishinapp@yahoo.com","","", SW_SHOW );
+Q: 如何用系统打印机打印文档?
+ShellExecute(this->m_hWnd, "print", "c:\\abc.txt", "", "", SW_HIDE);
+Q: 如何用系统查找功能来查找指定文件?
+ShellExecute(m_hWnd, "find", "d:\\nish", NULL, NULL, SW_SHOW);
+Q: 如何启动一个程序，直到它运行结束?
+　 　 SHELLEXECUTEINFO ShExecInfo = {0};
+ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+ShExecInfo.hwnd = NULL;
+ShExecInfo.lpVerb = NULL;
+ShExecInfo.lpFile = "c:\\MyProgram.exe";
+ShExecInfo.lpParameters = "";
+ShExecInfo.lpDirectory = NULL;
+ShExecInfo.nShow = SW_SHOW;
+ShExecInfo.hInstApp = NULL;
+ShellExecuteEx(&ShExecInfo);
+WaitForSingleObject(ShExecInfo.hProcess,INFINITE);
+　　或：
+PROCESS_INFORMATION ProcessInfo;
+STARTUPINFO StartupInfo; //This is an [in] parameter
+ZeroMemory(&StartupInfo, sizeof(StartupInfo));
+StartupInfo.cb = sizeof(StartupInfo); //Only compulsory field
+if(CreateProcess("c:\\winnt\\notepad.exe", NULL, NULL,NULL,FALSE,0,NULL, NULL,&StartupInfo,&ProcessInfo))
+{
+WaitForSingleObject(ProcessInfo.hProcess,INFINITE);
+CloseHandle(ProcessInfo.hThread);
+CloseHandle(ProcessInfo.hProcess);
+}
+else
+{
+MessageBox("The process could not be started...");
+}
+　　Q:　如何显示文件或文件夹的属性?
+SHELLEXECUTEINFO ShExecInfo = {0};
+ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+ShExecInfo.fMask = SEE_MASK_INVOKEIDLIST;
+ShExecInfo.hwnd = NULL;
+ShExecInfo.lpVerb = "properties";
+ShExecInfo.lpFile = "c:\\"; //can be a file as well
+ShExecInfo.lpParameters = "";
+ShExecInfo.lpDirectory = NULL;
+ShExecInfo.nShow = SW_SHOW;
+ShExecInfo.hInstApp = NULL;
+ShellExecuteEx(&ShExecInfo);
+
+使用CreateProcess命令
+　　⑴　函数原型：
+BOOL CreateProcess(
+　LPCTSTR lpApplicationName,
+　LPTSTR lpCommandLine,
+　LPSECURITY_ATTRIBUTES lpProcessAttributes,
+　LPSECURITY_ATTRIBUTES lpThreadAttributes,
+　BOOL bInheritHandles,
+　DWORD dwCreationFlags,
+　LPVOID lpEnvironment,
+　LPCTSTR lpCurrentDirectory,
+　LPSTARTUPINFO lpStartupInfo,
+　LPPROCESS_INFORMATION lpProcessInformation
+);
+　　⑵　参数：
+　　lpApplicationName：指向一个以空结尾的串，他指定了要执行的模块
+　　lpCommandLine：指向一个以空结尾的串，该串定义了要执行的命令行。
+　　lpProcessAttributes：指向一个SECURITY_ATTRIBUTES结构，该结构决定了返回的句柄是否可被子进程继承。
+　　lpThreadAttributes：指向一个SECURITY_ATTRIBUTES结构，该结构决定了返回的句柄是否可被子进程继承。
+　　bInheritHandles,：表明新进程是否从调用进程继承句柄。
+　　dwCreationFlags：定义控制优先类和进程创建的附加标志。
+　　lpEnvironment：指向一个新进程的环境块。
+　　lpCurrentDirectory：指向一个以空结尾的串，该串定义了子进程的当前驱动器和当前目录。
+　　lpStartupInfo：指向一个STARTUPINFO结构，该结构定义了新进程的主窗口将如何显示。
+　　lpProcessInformation：指向PROCESS_INFORMATION结构，该结构接受关于新进程的表示信息。
+　　⑶　返回值：
+　　若函数调用成功，则返回值不为0；若函数调用失败，返回值为0。
+　　在上述参数中，参数lpStartupInfo是STARTUPINFO结构。可以用来设置控台的标题，新窗口的的初始大小和位置，及重定向标准输入 和输出。新程序通常可以忽略多数这些数据项，如果选择那样做的话。可以规定该结构体中的标志，已表明要设置的数据段。有时，不想设置任何信息，也必须传递 一个有效的指针给空结构（确定设置大小到cb，及设置dwFlags成员为0）。参数lpProcessInformation返回进程和线程句柄，还包 括进程和线程ID。这些句柄拥有在参数lpProcessAttributes和lpThreadAttributes中规定的访问。
+　　要注意，针对CreateProcess的一些参数对控制台应用程序是特定的，而其它参数则对各种应用程序有用。大多数情况下，并不一定要填入 STARTUPINFO结构，但无论如何必须提供它。其返回值是布尔型的，而真正感兴趣的返回值发生于作为参数传送的结构中 （PROCESS_INFORMATION）。CreateProcess返回该结构中的进程ID及其句柄，以及初始线程ID及其句柄。可以将ID发送到 其它进程，或使用句柄来控制新进程。
+　　ShellExecute和WinExec命令用于简单的作业。如果要完全控制一个新进程，就必须调用CreateProcess。
+
+
+---------------------------------------------------------------------------------------------------------
+
+三、注意事项
+
+1、定义头文件
+
+在头文件stdafx.h中必须定义以下两个头文件：
+
+#include <shlobj.h> // 可替换为 windows.h
+#include <shellapi.h>
+如果定义了头文件 #include <windows.h>的话就不必定义 #include <shlobj.h>了，"windows.h" 不光是包含了"shellapi.h"，它还定义了许多数据类型，如果没有这些数据类型，shellapi.h本身会出错。
